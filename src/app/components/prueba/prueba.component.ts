@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SrvBusquedaService } from '../../services/srv-busqueda.service';
-import { IntBbc } from '../../interfaces/int-bbc';
+import { IntBusqueda } from '../../interfaces/int-busqueda';
 import { SelectMultipleControlValueAccessor } from '@angular/forms';
 
 @Component({
@@ -10,11 +10,9 @@ import { SelectMultipleControlValueAccessor } from '@angular/forms';
 })
 export class PruebaComponent implements OnInit {
   //interfaz de busqueda
-  resultadoBusqueda: IntBbc;
+  resultadoBusqueda: IntBusqueda[];
   //parametro de busqueda de la ruta Search
   busquedaQuery: string;
-
-  arreglo: any[];
 
   constructor(private ServicioBuscarService: SrvBusquedaService) { }
 
@@ -22,9 +20,13 @@ export class PruebaComponent implements OnInit {
     this.busquedaGit();
   }
 
-  busquedaGit = () => {
-    this.arreglo = this.ServicioBuscarService.busquedaFederada(["bbc"]).then;
-    console.log(this.arreglo);
+  busquedaGit = () => { 
+    this.ServicioBuscarService.busquedaFederada(["bbc", "reforma"]).then((response) => {
+      this.resultadoBusqueda = response;
+      console.log(this.resultadoBusqueda);
+    }, (error) => {
+      alert("Error: " + error.statusText)
+    })
   }
 
 }
