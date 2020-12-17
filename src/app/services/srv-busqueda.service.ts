@@ -157,30 +157,32 @@ export class SrvBusquedaService {
               default:
                 break;
             }
-            let numItems = Math.max(listaAnmo.length, listaBbc.length, listaDeportes.length, listaKudasai.length, listaMusica.length, listaReforma.length);
-        
-            for (let index = 0; index < numItems; index++) {
-              if (listaBbc[index]) {
-                listaResultados.push(listaBbc[index])
+            if (index == (urls.length - 1)) {
+              let numItems = Math.max(listaAnmo.length, listaBbc.length, listaDeportes.length, listaKudasai.length, listaMusica.length, listaReforma.length);
+          
+              for (let contador = 0; contador < numItems; contador++) {
+                if (listaBbc[contador]) {
+                  listaResultados.push(listaBbc[contador])
+                }
+                if (listaAnmo[contador]) {
+                  listaResultados.push(listaAnmo[contador])
+                }
+                if (listaDeportes[contador]) {
+                  listaResultados.push(listaDeportes[contador])
+                }
+                if (listaKudasai[contador]) {
+                  listaResultados.push(listaKudasai[contador])
+                }
+                if (listaMusica[contador]) {
+                  listaResultados.push(listaMusica[contador])
+                }
+                if (listaReforma[contador]) {
+                  listaResultados.push(listaReforma[contador])
+                }
               }
-              if (listaAnmo[index]) {
-                listaResultados.push(listaAnmo[index])
-              }
-              if (listaDeportes[index]) {
-                listaResultados.push(listaDeportes[index])
-              }
-              if (listaKudasai[index]) {
-                listaResultados.push(listaKudasai[index])
-              }
-              if (listaMusica[index]) {
-                listaResultados.push(listaMusica[index])
-              }
-              if (listaReforma[index]) {
-                listaResultados.push(listaReforma[index])
-              }
+              //listaResultados = this.aleatorizarResultados(listaResultados);
+              resolve(listaResultados as IntBusqueda[]);
             }
-            //listaResultados = this.aleatorizarResultados(listaResultados);
-            resolve(listaResultados as IntBusqueda[]);
           }, (error) => {
             reject(error);
           })
