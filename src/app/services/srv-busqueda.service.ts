@@ -135,12 +135,12 @@ export class SrvBusquedaService {
                 respuesta = response["rss"].channel.item;
                 numFeeds.push((respuesta).length);
                 for (let aux = 0; aux < (respuesta).length; aux++) {
-                  /*let description = respuesta[aux].description;
+                  let description = respuesta[aux].description;
                   let divisor = description.split('<img align=\"left\" src=\"');
                   divisor = divisor[1].split('\"/>\n');
                   let imagen = divisor[0];
-                  description = divisor[1];*/
-                  resultado = this.generateResultado("hoy.es", respuesta[aux].title, respuesta[aux].link, "", respuesta[aux].description);
+                  description = String(divisor[1]).trim();
+                  resultado = this.generateResultado("hoy.es", respuesta[aux].title, respuesta[aux].link, imagen, description/*respuesta[aux].description*/);
                   listaMusica.push(resultado as IntBusqueda);
                   //listaResultados.push(resultado as IntBusqueda);
                 }
@@ -157,6 +157,7 @@ export class SrvBusquedaService {
               default:
                 break;
             }
+            this.sleep(1000);
             if (index == (urls.length - 1)) {
               let numItems = Math.max(listaAnmo.length, listaBbc.length, listaDeportes.length, listaKudasai.length, listaMusica.length, listaReforma.length);
           
@@ -212,4 +213,7 @@ export class SrvBusquedaService {
     return resultado;
   }
 
+  private sleep = (ms: number) => {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
 }

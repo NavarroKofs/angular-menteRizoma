@@ -21,7 +21,7 @@ export class PruebaComponent implements OnInit {
   }
 
   busquedaGit = () => { 
-    this.ServicioBuscarService.busquedaFederada(["bbc", "reforma"]).then((response) => {
+    this.ServicioBuscarService.busquedaFederada(["musica"]).then((response) => {
       this.resultadoBusqueda = response;
       console.log(this.resultadoBusqueda);
     }, (error) => {
