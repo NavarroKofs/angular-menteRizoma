@@ -7,5 +7,45 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto:wght@700&display=swap" rel="stylesheet">
 </head>
 <app-header></app-header>
-<app-prueba></app-prueba>
+
+<section>
+  <div class="container-fluid" >
+    <ngb-carousel *ngIf="resultadoBusqueda; else elseBlock">
+        <ng-template ngbSlide *ngFor="let elemento of resultadoBusqueda | slice:0:10;; index as i;">
+          <div class="wrapper">
+            <p class="source">{{elemento.source | uppercase}}</p>
+            <img [src]="elemento.image" alt="Random first slide">
+          </div>
+          <div class="carousel-caption">
+            <h3 class="name">{{elemento.title}}</h3>
+            <p>{{elemento.description}}</p>
+          </div>
+        </ng-template>
+    </ngb-carousel>
+  </div>
+  <ng-template #elseBlock>
+    <div class="container-fluid" >
+      <ngb-carousel>
+          <ng-template ngbSlide>
+              <div class="wrapper view w-100">
+                  <span class="spinner-border"></span>
+              </div>
+          </ng-template>
+      </ngb-carousel>
+    </div>
+  </ng-template>
+</section>
+<div class="divisor">
+  <div class="tiny-divisor">
+    <div></div>
+  </div>
+  <div class="rombo">
+    <img src="images/icons/services-icon.svg">
+  </div>
+  <div class="tiny-divisor">
+    <div></div>
+  </div>
+</div>
+
+
 <app-footer></app-footer>

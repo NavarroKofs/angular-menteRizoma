@@ -1,0 +1,71 @@
+ngb-carousel .wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    height: 0;
+    z-index: 0;
+    padding-top: 55%; /* Keep ratio for 900x500 images */
+}
+  
+ngb-carousel .wrapper > img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    object-fit: cover !important;
+    background-color: rgba(0,0,0,0.6);
+    filter:brightness(0.4);
+}
+
+.container-fluid {
+    max-width: 900px !important;
+    max-height: 500px !important;
+    margin: 20px !important;
+}
+
+ngb-carousel .wrapper > span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 0  auto;
+}
+
+.slide-up.ng-enter {
+    animation: slideInDown 1s;
+  -webkit-animation: slideInDown 1s;
+}
+
+
+.slide-up.ng-leave {
+    animation: slideOutDown 1s;
+  -webkit-animation: slideOutDown 1s;
+  
+}
+
+.slide-down.ng-enter {
+    animation: slideInUp 1s;
+  -webkit-animation: slideInUp 1s;
+}
+
+.slide-down.ng-leave {
+    animation: slideOutUp 1s;
+  -webkit-animation: slideOutUp 1s;
+  
+}
+
+.source {
+    font-size: 14px;
+    position: absolute;
+    border-radius: 20px;
+    background-color: #FF5472;
+    color: #FCFAF4;
+    padding: 10px;
+    top: 5%;
+    right: 5%;
+    z-index: 1;
+}

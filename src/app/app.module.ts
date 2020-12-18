@@ -9,6 +9,8 @@ import { IndexComponent } from './components/index/index.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PruebaComponent } from './components/prueba/prueba.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CmpCarouselComponent } from './components/cmp-carousel/cmp-carousel.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,15 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     IndexComponent,
     HeaderComponent,
-    PruebaComponent
+    PruebaComponent,
+    CmpCarouselComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -40,29 +40,6 @@ export class SrvBusquedaService {
     this.http = http
   }
 
-  /*busqueda = (url: string): Promise<IntBusqueda> => {
-    let promise = new Promise<IntBusqueda>((resolve, reject) => {
-        if (this.cachedValues[url]) {
-          resolve(this.cachedValues[url])
-        } else {
-          const httpOptions = {
-            headers: new HttpHeaders({ 
-              'Access-Control-Allow-Origin':'http://localhost:4200/', 'Content-Type': 'application/json'
-            })
-          };
-          this.http.get('/xml-to-json/?xml=' + url, httpOptions)
-            .toPromise()
-            .then( (response) => {
-              //resolve(response["rss"].channel.item[0]);
-              resolve(response as IntBusqueda)
-            }, (error) => {
-              reject(error);
-            })
-        }
-    })
-    return promise;
-  }*/
-
   busquedaFederada = (urls: any[]): Promise<IntBusqueda[]> => {
     let listaResultados: IntBusqueda[];
     listaResultados = [];
@@ -99,7 +76,7 @@ export class SrvBusquedaService {
                 respuesta = response["feed"].entry;
                 numFeeds.push((respuesta).length);
                 for (let aux = 0; aux < (respuesta).length; aux++) {
-                  resultado = this.generateResultado("bbc", respuesta[aux].title, respuesta[aux].link['@href'], /*respuesta[aux].link['media:content']['media:thumbnail'][0]['@url']*/"", respuesta[aux].summary);
+                  resultado = this.generateResultado("bbc", respuesta[aux].title, respuesta[aux].link['@href'], /*respuesta[aux].link['media:content']['media:thumbnail'][0]['@url']*/"https://uploads-ssl.webflow.com/5d6ed3ec5fd0246da423f7a8/5dcc3ae6e62de1121a4aab86_no-disponible-7448e295ce0d80db8b02f2e8e09c6148ecbd626418792e792d0195e8c26851b9.png", respuesta[aux].summary);
                   listaBbc.push(resultado as IntBusqueda);
                   //listaResultados.push(resultado as IntBusqueda);
                 }
@@ -117,7 +94,7 @@ export class SrvBusquedaService {
                 respuesta = response["rss"].channel.item;
                 numFeeds.push((respuesta).length);
                 for (let aux = 0; aux < (respuesta).length; aux++) {
-                  resultado = this.generateResultado("somoskudasai", respuesta[aux].title, respuesta[aux].link, "", respuesta[aux].description);
+                  resultado = this.generateResultado("somoskudasai", respuesta[aux].title, respuesta[aux].link, "https://uploads-ssl.webflow.com/5d6ed3ec5fd0246da423f7a8/5dcc3ae6e62de1121a4aab86_no-disponible-7448e295ce0d80db8b02f2e8e09c6148ecbd626418792e792d0195e8c26851b9.png", respuesta[aux].description);
                   listaKudasai.push(resultado as IntBusqueda);
                   //listaResultados.push(resultado as IntBusqueda);
                 }
@@ -126,7 +103,7 @@ export class SrvBusquedaService {
                 respuesta = response["rss"].channel.item;
                 numFeeds.push((respuesta).length);
                 for (let aux = 0; aux < (respuesta).length; aux++) {
-                  resultado = this.generateResultado("anmosugoi", respuesta[aux].title, respuesta[aux].link, "", respuesta[aux].description);
+                  resultado = this.generateResultado("anmosugoi", respuesta[aux].title, respuesta[aux].link, "https://uploads-ssl.webflow.com/5d6ed3ec5fd0246da423f7a8/5dcc3ae6e62de1121a4aab86_no-disponible-7448e295ce0d80db8b02f2e8e09c6148ecbd626418792e792d0195e8c26851b9.png", respuesta[aux].description);
                   listaAnmo.push(resultado as IntBusqueda);
                   //listaResultados.push(resultado as IntBusqueda);
                 }
@@ -138,9 +115,9 @@ export class SrvBusquedaService {
                   let description = respuesta[aux].description;
                   let divisor = description.split('<img align=\"left\" src=\"');
                   divisor = divisor[1].split('\"/>\n');
-                  let imagen = divisor[0];
+                  let imagen = this.eliminarHtml(divisor[0]);
                   description = String(divisor[1]).trim();
-                  resultado = this.generateResultado("hoy.es", respuesta[aux].title, respuesta[aux].link, imagen, description/*respuesta[aux].description*/);
+                  resultado = this.generateResultado("hoy.es", respuesta[aux].title, respuesta[aux].link, imagen, description);
                   listaMusica.push(resultado as IntBusqueda);
                   //listaResultados.push(resultado as IntBusqueda);
                 }
@@ -209,11 +186,15 @@ export class SrvBusquedaService {
     resultado.title = title;
     resultado.url = url;
     resultado.image = image;
-    resultado.description = description;
+    resultado.description = this.eliminarHtml(description);
     return resultado;
   }
 
   private sleep = (ms: number) => {
     return new Promise( resolve => setTimeout(resolve, ms) );
   }
+
+  private eliminarHtml(cadena) {
+    return cadena.replace(/<\/?[^>]+>/gi, '');
+}
 }

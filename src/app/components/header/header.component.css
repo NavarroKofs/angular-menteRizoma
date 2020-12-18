@@ -19,7 +19,7 @@ header {
 }
 
 .nav-logo {
-    width: 200px;
+    width: 250px;
     height: 48px;
 }
 
@@ -46,9 +46,10 @@ header {
 }
 
 .nav-menu > li > a:hover {
-    padding: 4px;
+    border-radius: 5px;
+    padding: 8px;
     color: var(--white);
-    background-color: var(--orange);
+    background-color: #FF5472;
 }
 
 .nav-menu > li > .bold-option {
