@@ -1,5 +1,5 @@
 header {
-    z-index: 1;
+    z-index: 1000;
     margin: 30px auto;
     position: -webkit-sticky; /* Safari */
     position: sticky;
@@ -21,6 +21,7 @@ header {
 .nav-logo {
     width: 250px;
     height: 48px;
+    margin: 0;
 }
 
 .nav-logo > .logo {

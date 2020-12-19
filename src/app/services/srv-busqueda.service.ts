@@ -76,7 +76,7 @@ export class SrvBusquedaService {
                 respuesta = response["feed"].entry;
                 numFeeds.push((respuesta).length);
                 for (let aux = 0; aux < (respuesta).length; aux++) {
-                  resultado = this.generateResultado("bbc", respuesta[aux].title, respuesta[aux].link['@href'], /*respuesta[aux].link['media:content']['media:thumbnail'][0]['@url']*/"https://uploads-ssl.webflow.com/5d6ed3ec5fd0246da423f7a8/5dcc3ae6e62de1121a4aab86_no-disponible-7448e295ce0d80db8b02f2e8e09c6148ecbd626418792e792d0195e8c26851b9.png", respuesta[aux].summary);
+                  resultado = this.generateResultado("bbc", respuesta[aux].title, respuesta[aux].link['@href'], respuesta[aux].link['media:content']['media:thumbnail'][0]['@url'], respuesta[aux].summary);
                   listaBbc.push(resultado as IntBusqueda);
                   //listaResultados.push(resultado as IntBusqueda);
                 }

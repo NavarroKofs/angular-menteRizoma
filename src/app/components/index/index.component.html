@@ -8,43 +8,114 @@
 </head>
 <app-header></app-header>
 
-<section>
-  <div class="container-fluid" >
-    <ngb-carousel *ngIf="resultadoBusqueda; else elseBlock">
-        <ng-template ngbSlide *ngFor="let elemento of resultadoBusqueda | slice:0:10;; index as i;">
-          <div class="wrapper">
-            <p class="source">{{elemento.source | uppercase}}</p>
-            <img [src]="elemento.image" alt="Random first slide">
-          </div>
-          <div class="carousel-caption">
-            <h3 class="name">{{elemento.title}}</h3>
-            <p>{{elemento.description}}</p>
-          </div>
-        </ng-template>
-    </ngb-carousel>
-  </div>
-  <ng-template #elseBlock>
+<div class="page">
+  <section class="section-principal">
     <div class="container-fluid" >
-      <ngb-carousel>
-          <ng-template ngbSlide>
-              <div class="wrapper view w-100">
-                  <span class="spinner-border"></span>
-              </div>
+      <ngb-carousel *ngIf="resultadoBusqueda; else elseBlock">
+          <ng-template ngbSlide *ngFor="let elemento of resultadoBusqueda | slice:0:10; index as i;">
+            <div class="wrapper">
+              <p class="source">{{elemento.source | uppercase}}</p>
+              <img [src]="elemento.image" alt="Random first slide">
+            </div>
+            <div class="carousel-caption">
+              <h3 class="name">{{elemento.title}}</h3>
+              <p>{{elemento.description}}</p>
+            </div>
           </ng-template>
       </ngb-carousel>
     </div>
+    <ng-template #elseBlock>
+      <div class="container-fluid" >
+        <ngb-carousel>
+            <ng-template ngbSlide>
+                <div class="wrapper view w-100">
+                    <span class="spinner-border"></span>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+      </div>
+    </ng-template>
+  </section>
+  <div class="divisor">
+    <div class="tiny-divisor">
+      <div></div>
+    </div>
+    <div class="rombo">
+      <img src="images/icons/services-icon.svg">
+    </div>
+    <div class="tiny-divisor">
+      <div></div>
+    </div>
+  </div>
+  <section class="section-card" *ngIf="resultadoBusqueda; else elseBlock">
+    <div class="card" style="width: 18rem;" *ngFor="let card of resultadoBusqueda | slice:11:30; index as i;">
+      <img class="card-img-top" [src]="card.image" alt="Card image cap">
+      <div class="card-body">
+        <a class="card-text" [href]="card.url">{{card.title}}</a>
+      </div>
+    </div>
+  </section>
+  <ng-template #elseBlock>
+  Loading
   </ng-template>
-</section>
-<div class="divisor">
-  <div class="tiny-divisor">
-    <div></div>
+  <div class="divisor">
+    <div class="tiny-divisor">
+      <div></div>
+    </div>
+    <div class="rombo">
+      <img src="images/icons/services-icon.svg">
+    </div>
+    <div class="tiny-divisor">
+      <div></div>
+    </div>
   </div>
-  <div class="rombo">
-    <img src="images/icons/services-icon.svg">
-  </div>
-  <div class="tiny-divisor">
-    <div></div>
-  </div>
+  <section class="section-card-list" *ngIf="resultadoBusqueda; else elseBlock">
+    <div class="card-list-column">
+      <div class="card-list">
+        <img class="card-img-top" [src]="resultadoBusqueda[31].image" alt="Card image cap">
+        <a class="card-text" [href]="resultadoBusqueda[31].url">{{resultadoBusqueda[31].title}}</a>
+      </div>
+      <div class="list-items">
+        <ul class="list-group list-group-flush" *ngFor="let card of resultadoBusqueda | slice:32:37; index as i;">
+          <li class="list-group-item">
+            <img [src]="card.image" alt="news image item">
+            <a [href]="card.url">{{card.title}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card-list-column">
+      <div class="card-list">
+        <img class="card-img-top" [src]="resultadoBusqueda[38].image" alt="Card image cap">
+        <a class="card-text" [href]="resultadoBusqueda[38].url">{{resultadoBusqueda[38].title}}</a>
+      </div>
+      <div class="list-items">
+        <ul class="list-group list-group-flush" *ngFor="let card of resultadoBusqueda | slice:39:44; index as i;">
+          <li class="list-group-item">
+            <img [src]="card.image" alt="news image item">
+            <a [href]="card.url">{{card.title}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card-list-column">
+      <div class="card-list">
+        <img class="card-img-top" [src]="resultadoBusqueda[45].image" alt="Card image cap">
+        <a class="card-text" [href]="resultadoBusqueda[45].url">{{resultadoBusqueda[45].title}}</a>
+      </div>
+      <div class="list-items">
+        <ul class="list-group list-group-flush" *ngFor="let card of resultadoBusqueda | slice:46:50; index as i;">
+          <li class="list-group-item">
+            <img [src]="card.image" alt="news image item">
+            <a [href]="card.url">{{card.title}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <ng-template #elseBlock>Loading</ng-template>
 </div>
 
 

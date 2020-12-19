@@ -34,5 +34,4 @@ export class IndexComponent implements OnInit {
       alert("Error: " + error.statusText)
     })
   }
-
 }
