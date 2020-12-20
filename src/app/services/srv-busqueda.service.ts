@@ -15,7 +15,9 @@ export class SrvBusquedaService {
     [url: string]: IntBbc
   }> = [];*/
 
-   urls = {
+  urlImgNotFound = "https://uploads-ssl.webflow.com/5d6ed3ec5fd0246da423f7a8/5dcc3ae6e62de1121a4aab86_no-disponible-7448e295ce0d80db8b02f2e8e09c6148ecbd626418792e792d0195e8c26851b9.png";
+
+  urls = {
     bbc: {
       url: "https://www.bbc.com/mundo/ultimas_noticias/index.xml"
     },
@@ -76,9 +78,12 @@ export class SrvBusquedaService {
                 respuesta = response["feed"].entry;
                 numFeeds.push((respuesta).length);
                 for (let aux = 0; aux < (respuesta).length; aux++) {
-                  resultado = this.generateResultado("bbc", respuesta[aux].title, respuesta[aux].link['@href'], respuesta[aux].link['media:content']['media:thumbnail'][0]['@url'], respuesta[aux].summary);
+                  let image = this.urlImgNotFound;
+                  if (respuesta[aux].link['media:content']['media:thumbnail'][0]['@url']) {
+                    image = respuesta[aux].link['media:content']['media:thumbnail'][0]['@url'];
+                  }
+                  resultado = this.generateResultado("bbc", respuesta[aux].title, respuesta[aux].link['@href'], image , respuesta[aux].summary);
                   listaBbc.push(resultado as IntBusqueda);
-                  //listaResultados.push(resultado as IntBusqueda);
                 }
                 break;
               case "reforma":
@@ -87,25 +92,22 @@ export class SrvBusquedaService {
                 for (let aux = 0; aux < (respuesta).length; aux++) {
                   resultado = this.generateResultado("reforma", respuesta[aux].title, respuesta[aux].link, respuesta[aux].enclosure, respuesta[aux].description);
                   listaReforma.push(resultado as IntBusqueda);
-                  //listaResultados.push(resultado as IntBusqueda);
                 }
               break;
               case "kudasai":
                 respuesta = response["rss"].channel.item;
                 numFeeds.push((respuesta).length);
                 for (let aux = 0; aux < (respuesta).length; aux++) {
-                  resultado = this.generateResultado("somoskudasai", respuesta[aux].title, respuesta[aux].link, "https://uploads-ssl.webflow.com/5d6ed3ec5fd0246da423f7a8/5dcc3ae6e62de1121a4aab86_no-disponible-7448e295ce0d80db8b02f2e8e09c6148ecbd626418792e792d0195e8c26851b9.png", respuesta[aux].description);
+                  resultado = this.generateResultado("somoskudasai", respuesta[aux].title, respuesta[aux].link, this.urlImgNotFound, respuesta[aux].description);
                   listaKudasai.push(resultado as IntBusqueda);
-                  //listaResultados.push(resultado as IntBusqueda);
                 }
                 break;
               case "anmo":
                 respuesta = response["rss"].channel.item;
                 numFeeds.push((respuesta).length);
                 for (let aux = 0; aux < (respuesta).length; aux++) {
-                  resultado = this.generateResultado("anmosugoi", respuesta[aux].title, respuesta[aux].link, "https://uploads-ssl.webflow.com/5d6ed3ec5fd0246da423f7a8/5dcc3ae6e62de1121a4aab86_no-disponible-7448e295ce0d80db8b02f2e8e09c6148ecbd626418792e792d0195e8c26851b9.png", respuesta[aux].description);
+                  resultado = this.generateResultado("anmosugoi", respuesta[aux].title, respuesta[aux].link, this.urlImgNotFound, respuesta[aux].description);
                   listaAnmo.push(resultado as IntBusqueda);
-                  //listaResultados.push(resultado as IntBusqueda);
                 }
                 break;
               case "musica":
@@ -119,7 +121,6 @@ export class SrvBusquedaService {
                   description = String(divisor[1]).trim();
                   resultado = this.generateResultado("hoy.es", respuesta[aux].title, respuesta[aux].link, imagen, description);
                   listaMusica.push(resultado as IntBusqueda);
-                  //listaResultados.push(resultado as IntBusqueda);
                 }
                 break;
               case "deportes":
@@ -128,7 +129,6 @@ export class SrvBusquedaService {
                 for (let aux = 0; aux < (respuesta).length; aux++) {
                   resultado = this.generateResultado("espn", respuesta[aux].title, respuesta[aux].link, respuesta[aux].image, respuesta[aux].description);
                   listaDeportes.push(resultado as IntBusqueda);
-                  //listaResultados.push(resultado as IntBusqueda);
                 }
                 break;
               default:
@@ -158,7 +158,6 @@ export class SrvBusquedaService {
                   listaResultados.push(listaReforma[contador])
                 }
               }
-              //listaResultados = this.aleatorizarResultados(listaResultados);
               resolve(listaResultados as IntBusqueda[]);
             }
           }, (error) => {

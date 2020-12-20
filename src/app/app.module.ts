@@ -11,6 +11,8 @@ import { PruebaComponent } from './components/prueba/prueba.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CmpCarouselComponent } from './components/cmp-carousel/cmp-carousel.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CmpClimaComponent } from './components/cmp-clima/cmp-clima.component';
+import { CmpCurrencyComponent } from './components/cmp-currency/cmp-currency.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     IndexComponent,
     HeaderComponent,
     PruebaComponent,
-    CmpCarouselComponent
+    CmpCarouselComponent,
+    CmpClimaComponent,
+    CmpCurrencyComponent
   ],
   imports: [
     BrowserModule,
