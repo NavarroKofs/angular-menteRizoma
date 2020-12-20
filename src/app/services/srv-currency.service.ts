@@ -12,15 +12,22 @@ export class SrvCurrencyService {
     this.http = http;
   }
 
-  values: IntCurrency[] = [];
-
   precioDolar = (): Promise<IntCurrency[]> => {
     let promise = new Promise<IntCurrency[]>((resolve, reject) => {
+      let values: IntCurrency[] = [];
       this.http.get('https://api.exchangeratesapi.io/latest?base=USD')
       .toPromise()
       .then( (response) => {
-        this.values.push(this.generateResultado(response.rates));
-        resolve(response as IntCurrency[])
+        Object.keys(response['rates']).forEach(function (key) {
+          let resultado = {
+            name: "",
+            value: 0
+          }
+          resultado.name = String(key);
+          resultado.value = Number(response['rates'][key]);
+          values.push(resultado);
+        })
+        resolve(values as IntCurrency[])
       }, (error) => {
         reject(error);
       })
