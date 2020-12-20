@@ -13,6 +13,9 @@ import { CmpCarouselComponent } from './components/cmp-carousel/cmp-carousel.com
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CmpClimaComponent } from './components/cmp-clima/cmp-clima.component';
 import { CmpCurrencyComponent } from './components/cmp-currency/cmp-currency.component';
+import { DeportesComponent } from './components/cmp-deportes/cmp-deportes.component';
+import { MusicaComponent } from './components/cmp-musica/cmp-musica.component';
+import { EntretenimientoComponent } from './components/cmp-entretenimiento/cmp-entretenimiento.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { CmpCurrencyComponent } from './components/cmp-currency/cmp-currency.com
     PruebaComponent,
     CmpCarouselComponent,
     CmpClimaComponent,
-    CmpCurrencyComponent
+    CmpCurrencyComponent,
+    DeportesComponent,
+    MusicaComponent,
+    EntretenimientoComponent
   ],
   imports: [
     BrowserModule,

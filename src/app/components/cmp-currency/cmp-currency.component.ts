@@ -22,7 +22,7 @@ export class CmpCurrencyComponent implements OnInit {
 
   busquedaGit = () => { 
     this.ServicioCurrency.precioDolar().then( (response) => {
-      this.precioDolar = response;
+      //this.precioDolar = response;
     }, (error) => {
       alert("Error: " + error.statusText)
     })
