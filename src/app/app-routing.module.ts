@@ -9,7 +9,9 @@ import { MusicaComponent } from "./components/cmp-musica/cmp-musica.component";
 const routes: Routes = [
   { path: '', component: IndexComponent},
   { path: 'prueba', component: PruebaComponent},
+
   { path: 'deportes', component: DeportesComponent},
+
   { path: 'musica', component: MusicaComponent},
   { path: 'entretenimiento', component: EntretenimientoComponent}
 ];
