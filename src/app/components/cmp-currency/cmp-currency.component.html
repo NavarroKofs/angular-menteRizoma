@@ -1,15 +1,15 @@
 <div class="card" *ngIf="precioDolar; else elseBlock">
     <div class="currency-card">
-        <h5 class="card-title">Precio del dolar en pesos mexicanos</h5>
-        <p>{{precioDolarMexico}}</p>
+        <h4 class="card-title">Precio del dolar en pesos mexicanos</h4>
+        <p>1 USD = ${{precioDolarMexico}} MXN</p>
         <div class="tiny-divisor">
             <div></div>
         </div>
-        <p>Conversor de divisas</p>
-        <form>
+        <p class="bold">Conversor de divisas</p>
+        <div class="form-currency">
             <div class="form-row">
               <div class="col">
-                <input type="text" class="form-control" placeholder="Last name">
+                <input type="text" class="form-control" placeholder="Cantidad">
               </div>
               <div class="col">
                 <select class="custom-select">
@@ -30,7 +30,7 @@
                   <button type="submit" class="btn btn-primary">Convertir</button>
                 </div>
             </div>
-        </form>
+          </div>
     </div>
 </div>
 <ng-template #elseBlock>Loading...</ng-template>

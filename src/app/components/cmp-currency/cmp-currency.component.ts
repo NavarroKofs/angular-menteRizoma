@@ -22,7 +22,7 @@ export class CmpCurrencyComponent implements OnInit {
   busquedaGit = () => { 
     this.ServicioCurrency.precioDolar().then( (response) => {
       this.precioDolar = response;
-      this.precioDolarMexico = response[27]['value'];
+      this.precioDolarMexico = parseFloat((response[27]['value']).toFixed(2));
     }, (error) => {
       alert("Error: " + error.statusText)
     });
@@ -35,5 +35,4 @@ export class CmpCurrencyComponent implements OnInit {
       alert("Error: " + error.statusText)
     });
   }
-//https://api.exchangeratesapi.io/latest?base=MXN&symbols=USD
 }
