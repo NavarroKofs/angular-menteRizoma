@@ -9,10 +9,9 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./cmp-currency.component.css']
 })
 export class CmpCurrencyComponent implements OnInit {
-
-  rates = {};
-  precioDolar: IntCurrency;
+  precioDolar: IntCurrency[];
   precioDolarMexico: number;
+  valorConversión: number;
 
   constructor(private ServicioCurrency: SrvCurrencyService) { }
 
@@ -22,14 +21,19 @@ export class CmpCurrencyComponent implements OnInit {
 
   busquedaGit = () => { 
     this.ServicioCurrency.precioDolar().then( (response) => {
-      //this.precioDolar = response;
+      this.precioDolar = response;
+      this.precioDolarMexico = response[27]['value'];
     }, (error) => {
       alert("Error: " + error.statusText)
-    })
+    });
   }
 
-  getConversion(){
-
+  getConversion(base, symbol){
+    this.ServicioCurrency.getConversion(base, symbol).then( (response) => {
+      this.valorConversión = response[0]['value'];
+    }, (error) => {
+      alert("Error: " + error.statusText)
+    });
   }
-
+//https://api.exchangeratesapi.io/latest?base=MXN&symbols=USD
 }

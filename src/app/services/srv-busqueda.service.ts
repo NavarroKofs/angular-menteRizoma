@@ -16,7 +16,7 @@ export class SrvBusquedaService {
   }> = [];*/
 
   urlImgNotFound = "https://uploads-ssl.webflow.com/5d6ed3ec5fd0246da423f7a8/5dcc3ae6e62de1121a4aab86_no-disponible-7448e295ce0d80db8b02f2e8e09c6148ecbd626418792e792d0195e8c26851b9.png";
-
+  urlImgNotFoundAnmo = "https://www.anmosugoi.com/wp-content/uploads/2019/10/sugoi-perfil-octubre.jpg";
   urls = {
     bbc: {
       url: "https://www.bbc.com/mundo/ultimas_noticias/index.xml"
@@ -79,7 +79,7 @@ export class SrvBusquedaService {
                 numFeeds.push((respuesta).length);
                 for (let aux = 0; aux < (respuesta).length; aux++) {
                   let image = this.urlImgNotFound;
-                  if (respuesta[aux].link['media:content']['media:thumbnail'][0]['@url']) {
+                  if (respuesta[aux].link['media:content']['media:thumbnail']) {
                     image = respuesta[aux].link['media:content']['media:thumbnail'][0]['@url'];
                   }
                   resultado = this.generateResultado("bbc", respuesta[aux].title, respuesta[aux].link['@href'], image , respuesta[aux].summary);
@@ -98,7 +98,17 @@ export class SrvBusquedaService {
                 respuesta = response["rss"].channel.item;
                 numFeeds.push((respuesta).length);
                 for (let aux = 0; aux < (respuesta).length; aux++) {
-                  resultado = this.generateResultado("somoskudasai", respuesta[aux].title, respuesta[aux].link, this.urlImgNotFound, respuesta[aux].description);
+                  let content = respuesta[aux]['content:encoded'];
+                  let imagen = this.urlImgNotFound;
+                  let divisor = content.split('<img loading="');
+                  if (divisor[1]) {
+                    divisor = divisor[1].split('src="');
+                    if (divisor[1]) {
+                      divisor = divisor[1].split('" ');
+                    }
+                    imagen = this.eliminarHtml(divisor[0]);
+                  }
+                  resultado = this.generateResultado("somoskudasai", respuesta[aux].title, respuesta[aux].link, imagen, respuesta[aux].description);
                   listaKudasai.push(resultado as IntBusqueda);
                 }
                 break;
@@ -106,7 +116,7 @@ export class SrvBusquedaService {
                 respuesta = response["rss"].channel.item;
                 numFeeds.push((respuesta).length);
                 for (let aux = 0; aux < (respuesta).length; aux++) {
-                  resultado = this.generateResultado("anmosugoi", respuesta[aux].title, respuesta[aux].link, this.urlImgNotFound, respuesta[aux].description);
+                  resultado = this.generateResultado("anmosugoi", respuesta[aux].title, respuesta[aux].link, this.urlImgNotFoundAnmo, respuesta[aux].description);
                   listaAnmo.push(resultado as IntBusqueda);
                 }
                 break;
