@@ -1,0 +1,7 @@
+.card-img-top {
+    background-color: rgba(0,0,0,0.6);
+    filter:brightness(0.6);
+    width: 18rem;
+    height: 12rem;
+    object-fit: cover;
+}

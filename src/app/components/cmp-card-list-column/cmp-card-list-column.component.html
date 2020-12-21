@@ -1,0 +1,14 @@
+<div class="card-list-column">
+    <div class="card-list">
+      <img class="card-img-top" [src]="resultadoBusqueda[0].image" alt="Card image cap">
+      <a class="card-text" [href]="resultadoBusqueda[0].url">{{resultadoBusqueda[0].title}}</a>
+    </div>
+    <div class="list-items">
+      <ul class="list-group list-group-flush" *ngFor="let card of resultadoBusqueda | slice:1:6; index as i;">
+        <li class="list-group-item">
+          <img [src]="card.image" alt="news image item">
+          <a class="list-group-item-title" [href]="card.url">{{card.title}}</a>
+        </li>
+      </ul>
+    </div>
+</div>

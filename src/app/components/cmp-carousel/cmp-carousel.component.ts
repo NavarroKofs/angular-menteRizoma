@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DomSanitizer } from "@angular/platform-browser";
+import { IntBusqueda } from "../../interfaces/int-busqueda";
 
 @Component({
   selector: 'app-cmp-carousel',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cmp-carousel.component.css']
 })
 export class CmpCarouselComponent implements OnInit {
+  
+  @Input ('resultadoBusqueda') resultadoBusqueda: IntBusqueda[];
+
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

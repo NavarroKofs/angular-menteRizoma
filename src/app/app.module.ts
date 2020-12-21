@@ -16,6 +16,9 @@ import { CmpCurrencyComponent } from './components/cmp-currency/cmp-currency.com
 import { DeportesComponent } from './components/cmp-deportes/cmp-deportes.component';
 import { MusicaComponent } from './components/cmp-musica/cmp-musica.component';
 import { EntretenimientoComponent } from './components/cmp-entretenimiento/cmp-entretenimiento.component';
+import { CmpTinyDivisorComponent } from './components/cmp-tiny-divisor/cmp-tiny-divisor.component';
+import { CmpCardComponent } from './components/cmp-card/cmp-card.component';
+import { CmpCardListColumnComponent } from './components/cmp-card-list-column/cmp-card-list-column.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { EntretenimientoComponent } from './components/cmp-entretenimiento/cmp-e
     CmpCurrencyComponent,
     DeportesComponent,
     MusicaComponent,
-    EntretenimientoComponent
+    EntretenimientoComponent,
+    CmpTinyDivisorComponent,
+    CmpCardComponent,
+    CmpCardListColumnComponent
   ],
   imports: [
     BrowserModule,

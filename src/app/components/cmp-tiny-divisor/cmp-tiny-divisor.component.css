@@ -1,0 +1,25 @@
+.divisor {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .rombo > img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .tiny-divisor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+    width: 40%;
+  }
+  
+  .tiny-divisor div {
+    border-bottom: solid .5px var(--gray);
+    width: 100%;
+  }
