@@ -3,9 +3,9 @@
   <section class="section-principal">
     <div class="container-fluid" >
       <ngb-carousel *ngIf="resultadoBusqueda; else elseBlock">
-          <ng-template ngbSlide *ngFor="let elemento of resultadoBusqueda | slice:0:10; index as i;">
+          <ng-template ngbSlide *ngFor="let elemento of resultadoBusqueda | slice:0:6; index as i;">
             <div class="wrapper">
-              <img [src]="elemento.image" alt="Random first slide">
+              <img [id]="i" [src]="elemento.image" alt="Random first slide" (click)="redirect($event)" >
             </div>
             <div class="carousel-caption">
               <h3 class="name">{{elemento.title}}</h3>
@@ -38,10 +38,13 @@
     </div>
   </div>
   <section class="section-card" *ngIf="resultadoBusqueda; else elseBlock">
-    <div class="card" style="width: 18rem;" *ngFor="let card of resultadoBusqueda | slice:11:30; index as i;">
-      <img class="card-img-top" [src]="card.image" alt="Card image cap">
+    <div class="card" style="width: 18rem;" *ngFor="let card of resultadoBusqueda | slice:6:30; index as i;">
+      <div class="card-desc" [id]="i" *ngIf="isVisibleArray[i];" (mouseout)="disableHover($event)">
+        <p>{{card.description}}</p>
+      </div>
+      <img class="card-img-top" [id]="i" (mouseover)="activateHover($event)" [src]="card.image" alt="Card image cap">
       <div class="card-body">
-        <a class="card-text" [href]="card.url">{{card.title}}</a>
+        <a class="card-text" [href]="card.url" target="_blank" rel="noopener noreferrer">{{card.title}}</a>
       </div>
     </div>
   </section>
