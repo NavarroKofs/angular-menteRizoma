@@ -13,6 +13,7 @@ export class EntretenimientoComponent implements OnInit {
     resultadoBusqueda: IntBusqueda[];
     //parametro de busqueda de la ruta Search
     busquedaQuery: string;
+
     //isvisibleArray
     isVisibleArray: boolean[];
 
@@ -22,7 +23,9 @@ export class EntretenimientoComponent implements OnInit {
     config.pauseOnHover = true;
     config.wrap = true;
     config.showNavigationIndicators = true;
+
     this.isVisibleArray = [];
+
   }
   ngOnInit(): void {
     this.busquedaGit();
@@ -57,9 +60,10 @@ export class EntretenimientoComponent implements OnInit {
         resumen = resumen.split("Este articulo pertenece")[0];
         this.resultadoBusqueda[noticia].description = resumen;
       }
+
     }, (error) => {
       alert("Error: " + error.statusText)
     })
   }
-
 }
+
