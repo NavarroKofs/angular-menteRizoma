@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router'
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -9,7 +11,7 @@ import { Routes, RouterModule } from '@angular/router'
 export class HeaderComponent implements OnInit {
   logo: string;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.logo = "../../images/logo-mente-rizoma.png";

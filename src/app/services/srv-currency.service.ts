@@ -12,15 +12,22 @@ export class SrvCurrencyService {
     this.http = http;
   }
 
-  values: IntCurrency[] = [];
-
   precioDolar = (): Promise<IntCurrency[]> => {
     let promise = new Promise<IntCurrency[]>((resolve, reject) => {
+      let values: IntCurrency[] = [];
       this.http.get('https://api.exchangeratesapi.io/latest?base=USD')
       .toPromise()
       .then( (response) => {
-        this.values.push(this.generateResultado(response.rates));
-        resolve(response as IntCurrency[])
+        const rates = JSON.stringify(response['rates']);
+        let divisor = rates.split('"');
+        for (let index = 1; index < divisor.length; index+=2) {
+          let resultado = {
+            name: divisor[index],
+            value: response['rates'][divisor[index]]
+          }
+          values.push(resultado);
+        }
+        resolve(values as IntCurrency[]);
       }, (error) => {
         reject(error);
       })
@@ -28,13 +35,26 @@ export class SrvCurrencyService {
     return promise;
   }
 
-  private generateResultado = (name:string, value:number) => {
-    let resultado = {
-      name: "",
-      value: 0
-    }
-    resultado.name = name;
-    resultado.value = value;
-    return resultado;
+  getConversion = (base:string, symbol:string): Promise<IntCurrency[]> => {
+    let promise = new Promise<IntCurrency[]>((resolve, reject) => {
+      let values: IntCurrency[] = [];
+      this.http.get('https://api.exchangeratesapi.io/latest?base=' + base + '&symbols=' + symbol)
+      .toPromise()
+      .then( (response) => {
+        const rates = JSON.stringify(response['rates']);
+        let divisor = rates.split('"');
+        for (let index = 1; index < divisor.length; index+=2) {
+          let resultado = {
+            name: divisor[index],
+            value: response['rates'][divisor[index]]
+          }
+          values.push(resultado);
+        }
+        resolve(values as IntCurrency[]);
+      }, (error) => {
+        reject(error);
+      })
+    });
+    return promise;
   }
 }

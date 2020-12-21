@@ -6,7 +6,7 @@ ngb-carousel .wrapper {
     z-index: 0;
     padding-top: 55%; /* Keep ratio for 900x500 images */
   }
-    
+
   ngb-carousel .wrapper > img {
     position: absolute;
     width: 100%;
@@ -15,23 +15,26 @@ ngb-carousel .wrapper {
     left: 0;
     bottom: 0;
     right: 0;
-    object-fit: cover !important;
+
+    object-fit: fill !important;
     background-color: rgba(0,0,0,0.6);
     filter:brightness(0.4);
+    cursor: pointer;
   }
-  
+
+
   ngb-carousel .carousel-caption > .name {
     font-size: 20px;
     font-weight: bold;
   }
-  
+
   .container-fluid {
     max-width: 900px !important;
     max-height: 500px !important;
     margin: 0;
     margin-left: 10%;
   }
-  
+
   ngb-carousel .wrapper > span {
     position: absolute;
     top: 45%;
@@ -40,11 +43,13 @@ ngb-carousel .wrapper {
     right: 0;
     margin: 0  auto;
   }
-  
+
+
   ngb-carousel  {
     margin: 0 10px;
   }
-  
+
+
   .source {
     font-size: 14px;
     position: absolute;
@@ -64,12 +69,12 @@ ngb-carousel .wrapper {
     align-items: center;
     margin: 20px 0;
   }
-  
+
   .rombo > img {
     width: 80px;
     height: 80px;
   }
-  
+
   .tiny-divisor {
     display: flex;
     justify-content: center;
@@ -77,12 +82,12 @@ ngb-carousel .wrapper {
     padding: 0 40px;
     width: 40%;
   }
-  
+
   .tiny-divisor div {
     border-bottom: solid .5px var(--gray);
     width: 100%;
   }
-  
+
   .section-card {
     display: flex;
     flex-direction: row;
@@ -90,11 +95,13 @@ ngb-carousel .wrapper {
     margin: auto;
     flex-wrap: wrap;
   }
-    
+
+
   .card {
     margin: 20px;
   }
-  
+
+
   .card > img {
     background-color: rgba(0,0,0,0.6);
     filter:brightness(0.6);
@@ -102,12 +109,12 @@ ngb-carousel .wrapper {
     height: 12rem;
     object-fit: cover;
   }
-  
+
   .page {
     width: 80%;
     margin: auto;
   }
-  
+
   .section-card-list {
     display: flex;
     flex-direction: row;
@@ -116,37 +123,40 @@ ngb-carousel .wrapper {
     justify-content: center;
     align-items: center;
   }
-    
+
   .card-list {
     width: 95%;
     height: 500px;
     margin: 0 0 5px 0;
   }
-    
+
   .card-list > img {
     height: 500px;
     object-fit: cover;
   }
-  
+
   .card-list > .card-text {
     position: absolute;
     bottom: 0%;
   }
-  
+
+
   .list-items {
     width: 100%;
   }
-  
+
   .list-items > ul {
     width: 100%;
   }
-  
+
+
   .list-items > ul > li {
     display: flex;
     width: 100%;
     padding: 0;
     margin: 0 0 5px 0;
   }
+
   
   .list-items > ul > li > img {
     width: 30%;
@@ -156,14 +166,31 @@ ngb-carousel .wrapper {
     margin: 0 10px;
     width: 70%;
   }
-  
+
   .section-principal {
     display: flex;
   }
-  
-  app-cmp-clima {
-    margin: auto;
-    width: 90%;
-    max-width: 500px;
-    max-height: 165px;
+
+  .card-desc{
+    font-family: sans-serif;
+    color: white;
+    z-index: 3;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 294px;
+    width: 288px;
+    border-radius: 0 0 5px 5px;
+    background-color: rgba(59, 67, 72, .85);
   }
+
+  .card-desc > p {
+    margin: 5%;
+    width:90%;
+    text-align: justify;
+  }
+
+  .card-img-top{
+    object-fit:fill !important;
+  }
+
