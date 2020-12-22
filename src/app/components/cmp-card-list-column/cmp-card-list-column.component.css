@@ -43,8 +43,10 @@
     margin: 0 0 5px 0;
 }
 
-.list-items > ul > li > img {
+.image-list-items {
     width: 30%;
+    height: 65px;
+    object-fit: cover;
 }
 
 .list-group-item-title {

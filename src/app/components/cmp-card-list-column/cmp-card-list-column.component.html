@@ -6,7 +6,7 @@
     <div class="list-items">
       <ul class="list-group list-group-flush" *ngFor="let card of resultadoBusqueda | slice:1:6; index as i;">
         <li class="list-group-item">
-          <img [src]="card.image" alt="news image item">
+          <img class="image-list-items" [src]="card.image" alt="news image item">
           <a class="list-group-item-title" [href]="card.url">{{card.title}}</a>
         </li>
       </ul>
