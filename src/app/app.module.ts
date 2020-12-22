@@ -24,6 +24,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { CmpPaginationListComponent } from './components/cmp-pagination-list/cmp-pagination-list.component';
 import { CmpBuscadorComponent } from './components/cmp-buscador/cmp-buscador.component';
 import { CmpBusquedaFederadaComponent } from './components/cmp-busqueda-federada/cmp-busqueda-federada.component';
+import { CmpLoadingComponent } from './components/cmp-loading/cmp-loading.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { CmpBusquedaFederadaComponent } from './components/cmp-busqueda-federada
     CmpCardListColumnComponent,
     CmpPaginationListComponent,
     CmpBuscadorComponent,
-    CmpBusquedaFederadaComponent
+    CmpBusquedaFederadaComponent,
+    CmpLoadingComponent
   ],
   imports: [
     BrowserModule,

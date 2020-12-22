@@ -2,9 +2,10 @@
 <div class="principal">
     <app-cmp-buscador></app-cmp-buscador>
     <br>
-    <div *ngIf="resultadoBusqueda">
+    <div *ngIf="resultadoBusqueda; else elseBlock">
         <p>Se han encontrado {{numResultados}} resultados</p>
         <app-cmp-pagination-list [resultadoBusqueda]="resultadoBusqueda"></app-cmp-pagination-list>
     </div>
+    <ng-template #elseBlock><app-cmp-loading></app-cmp-loading></ng-template>
 </div>
 <app-footer></app-footer>
