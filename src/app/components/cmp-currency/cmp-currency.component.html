@@ -6,31 +6,32 @@
             <div></div>
         </div>
         <p class="bold">Conversor de divisas</p>
-        <div class="form-currency">
-            <div class="form-row">
-              <div class="col">
-                <input type="text" class="form-control" placeholder="Cantidad">
-              </div>
-              <div class="col">
-                <select class="custom-select">
-                    <option selected>Selecciona la moneda de origen</option>
-                    <option *ngFor='let elemento of precioDolar; index as i;'>{{elemento.name}}</option>
-                </select>
-              </div>
-              <div class="col">
-                <select class="custom-select">
-                    <option selected>Selecciona la moneda de destino</option>
-                    <option *ngFor='let elemento of precioDolar; index as i;'>{{elemento.name}}</option>
-                </select>
-              </div>
+        <form class="form-currency" (ngSubmit) ="getConversion()" #modelTF="ngForm">
+          <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Cantidad" id="quantity" [(ngModel)]="frmTemplate.quantity" [ngModelOptions]="{standalone: true}" required>
             </div>
-            <br>
-            <div class="form-group row">
-                <div class="col-sm-10">
-                  <button type="submit" class="btn btn-primary">Convertir</button>
-                </div>
+            <div class="col">
+              <select class="custom-select" id="base" [(ngModel)]="frmTemplate.base" [ngModelOptions]="{standalone: true}">
+                  <option selected>Selecciona la moneda de origen</option>
+                  <option *ngFor='let elemento of precioDolar; index as i;'>{{elemento.name}}</option>
+              </select>
+            </div>
+            <div class="col">
+              <select class="custom-select" id="symbol" [(ngModel)]="frmTemplate.symbol" [ngModelOptions]="{standalone: true}" required>
+                  <option selected>Selecciona la moneda de destino</option>
+                  <option *ngFor='let elemento of precioDolar; index as i;'>{{elemento.name}}</option>
+              </select>
             </div>
           </div>
+          <br>
+          <div class="form-group row">
+              <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary" [disabled]="!modelTF.valid">Convertir</button>
+              </div>
+          </div>
+        </form>
+        <div *ngIf="valorConversion">El valor de la conversión es {{valorConversion}}</div>
     </div>
 </div>
 <ng-template #elseBlock>Loading...</ng-template>

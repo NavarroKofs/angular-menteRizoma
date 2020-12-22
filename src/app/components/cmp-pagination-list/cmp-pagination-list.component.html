@@ -1,0 +1,10 @@
+<div class="list-group" *ngFor="let elemento of resultadoBusqueda | paginate: { itemsPerPage: 10, currentPage: pageActual }; index as i;">
+    <a [href]="elemento.url" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{elemento.title}}</h5>
+        <small class="text-muted">{{elemento.source}}</small>
+      </div>
+      <p class="mb-1">{{elemento.description}}</p>
+    </a>
+</div>
+<pagination-controls (pageChange)="pageActual = $event"></pagination-controls>

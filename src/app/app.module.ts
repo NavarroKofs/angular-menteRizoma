@@ -19,6 +19,11 @@ import { EntretenimientoComponent } from './components/cmp-entretenimiento/cmp-e
 import { CmpTinyDivisorComponent } from './components/cmp-tiny-divisor/cmp-tiny-divisor.component';
 import { CmpCardComponent } from './components/cmp-card/cmp-card.component';
 import { CmpCardListColumnComponent } from './components/cmp-card-list-column/cmp-card-list-column.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { CmpPaginationListComponent } from './components/cmp-pagination-list/cmp-pagination-list.component';
+import { CmpBuscadorComponent } from './components/cmp-buscador/cmp-buscador.component';
+import { CmpBusquedaFederadaComponent } from './components/cmp-busqueda-federada/cmp-busqueda-federada.component';
 
 @NgModule({
   declarations: [
@@ -35,14 +40,20 @@ import { CmpCardListColumnComponent } from './components/cmp-card-list-column/cm
     EntretenimientoComponent,
     CmpTinyDivisorComponent,
     CmpCardComponent,
-    CmpCardListColumnComponent
+    CmpCardListColumnComponent,
+    CmpPaginationListComponent,
+    CmpBuscadorComponent,
+    CmpBusquedaFederadaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
