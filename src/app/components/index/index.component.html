@@ -2,7 +2,9 @@
 <div class="page" *ngIf="resultadoBusqueda else elseBlock">
   <section class="section-principal">
     <div class="container-fluid">
-      <app-cmp-carousel [resultadoBusqueda]="resultadoBusqueda | slice:0:10"></app-cmp-carousel>
+      <div class="carousel-container">
+        <app-cmp-carousel [resultadoBusqueda]="resultadoBusqueda | slice:0:10"></app-cmp-carousel>
+      </div>
     </div>
     <div class="widgets">
       <app-cmp-clima></app-cmp-clima>

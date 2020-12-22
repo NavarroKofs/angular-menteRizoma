@@ -6,7 +6,7 @@ ngb-carousel .wrapper {
   z-index: 0;
   padding-top: 55%; /* Keep ratio for 900x500 images */
 }
-  
+
 ngb-carousel .wrapper > img {
   position: absolute;
   width: 100%;
@@ -15,10 +15,13 @@ ngb-carousel .wrapper > img {
   left: 0;
   bottom: 0;
   right: 0;
-  object-fit: cover !important;
+
+  object-fit: fill !important;
   background-color: rgba(0,0,0,0.6);
   filter:brightness(0.4);
+  cursor: pointer;
 }
+
 
 ngb-carousel .carousel-caption > .name {
   font-size: 20px;
@@ -41,9 +44,11 @@ ngb-carousel .wrapper > span {
   margin: 0  auto;
 }
 
+
 ngb-carousel  {
   margin: 0 10px;
 }
+
 
 .source {
   font-size: 14px;
@@ -90,10 +95,12 @@ ngb-carousel  {
   margin: auto;
   flex-wrap: wrap;
 }
-  
+
+
 .card {
   margin: 20px;
 }
+
 
 .card > img {
   background-color: rgba(0,0,0,0.6);
@@ -116,13 +123,13 @@ ngb-carousel  {
   justify-content: center;
   align-items: center;
 }
-  
+
 .card-list {
   width: 95%;
   height: 500px;
   margin: 0 0 5px 0;
 }
-  
+
 .card-list > img {
   height: 500px;
   object-fit: cover;
@@ -133,6 +140,7 @@ ngb-carousel  {
   bottom: 0%;
 }
 
+
 .list-items {
   width: 100%;
 }
@@ -141,12 +149,19 @@ ngb-carousel  {
   width: 100%;
 }
 
+.card-text {  
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  color: black !important;
+}
+
 .list-items > ul > li {
   display: flex;
   width: 100%;
   padding: 0;
   margin: 0 0 5px 0;
 }
+
 
 .list-items > ul > li > img {
   width: 30%;
@@ -161,9 +176,28 @@ ngb-carousel  {
   display: flex;
 }
 
-app-cmp-clima {
-  margin: auto;
-  width: 90%;
-  max-width: 500px;
-  max-height: 165px;
+.card-desc{
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  font-weight: bold;
+  font-family: sans-serif;
+  color: white;
+  z-index: 3;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 191px;
+  width: 288px;
+  border-radius: 0 0 5px 5px;
+  background-color: #000000b0;
+}
+
+.card-desc > p {
+  margin: 5%;
+  width:90%;
+  text-align: justify;
+}
+
+.card-img-top{
+  object-fit:fill !important;
 }
