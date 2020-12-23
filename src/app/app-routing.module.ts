@@ -13,7 +13,7 @@ const routes: Routes = [
 
   { path: 'musica', component: MusicaComponent},
   { path: 'entretenimiento', component: EntretenimientoComponent},
-  { path: 'busqueda', component: CmpBusquedaFederadaComponent}
+  { path: 'LaBusqueda', component: CmpBusquedaFederadaComponent}
 ];
 
 @NgModule({
