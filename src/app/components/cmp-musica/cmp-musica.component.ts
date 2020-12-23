@@ -14,9 +14,6 @@ export class MusicaComponent implements OnInit {
  //parametro de busqueda de la ruta Search
  busquedaQuery: string;
  
- //isvisibleArray
- isVisibleArray: boolean[];
-
 constructor(private ServicioBuscarService: SrvBusquedaService, config: NgbCarouselConfig) {
  config.interval = 5000;
  config.keyboard = true;
@@ -24,22 +21,8 @@ constructor(private ServicioBuscarService: SrvBusquedaService, config: NgbCarous
  config.wrap = true;
  config.showNavigationIndicators = true;
 
- this.isVisibleArray = [];
-
 }ngOnInit(): void {
  this.busquedaGit();
-}
-
-activateHover($event){
- this.isVisibleArray[$event.target.id] = true;
-}
-disableHover($event){
- this.isVisibleArray[$event.target.id] = false;
-}
-disableAllHover(){
- for (const desc in this.isVisibleArray) {
-   this.isVisibleArray[desc] = false;
- }
 }
 
 redirect($event){
@@ -47,18 +30,17 @@ redirect($event){
            this.resultadoBusqueda[$event.target.id].url, "_blank","noopener noreferrer");
 }
 
-busquedaGit = () => {
- this.ServicioBuscarService.busquedaFederada(["musica"]).then((response) => {
-   this.resultadoBusqueda = response;
-   console.log(this.resultadoBusqueda);
-   for (let noticia = 5; noticia < this.resultadoBusqueda.length; noticia++) {
-     let resumen = this.resultadoBusqueda[noticia].description.split('.')[0]+'. ';
-     resumen = resumen.split("Este articulo pertenece")[0];
-     this.resultadoBusqueda[noticia].description = resumen;
-   }
+  busquedaGit = () => {
+  this.ServicioBuscarService.busquedaFederada(["musica"]).then((response) => {
+    this.resultadoBusqueda = response;
+    for (let noticia = 5; noticia < this.resultadoBusqueda.length; noticia++) {
+      let resumen = this.resultadoBusqueda[noticia].description.split('.')[0]+'. ';
+      resumen = resumen.split("Este articulo pertenece")[0];
+      this.resultadoBusqueda[noticia].description = resumen;
+    }
 
- }, (error) => {
-   alert("Error: " + error.statusText)
- })
-}
+  }, (error) => {
+    alert("Error: " + error.statusText)
+  })
+  }
 }

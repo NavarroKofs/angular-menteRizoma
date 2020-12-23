@@ -1,0 +1,36 @@
+.card-desc{
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  font-weight: bold;
+  font-family: sans-serif;
+  color: white;
+  z-index: 3;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 191px;
+  width: 288px;
+  border-radius: 0 0 5px 5px;
+  background-color: #000000b0;
+}
+
+.card-desc > p {
+  margin: 5%;
+  width:90%;
+  text-align: justify;
+}
+
+.card-text {
+	font-family: 'Raleway', sans-serif;
+	font-size: 20px;
+	color: black !important;
+}
+
+.card-img-top{
+  object-fit:fill !important;
+  background-color: rgba(0,0,0,0.6);
+  filter:brightness(0.6);
+  width: 18rem;
+  height: 12rem;
+  object-fit: cover;
+}

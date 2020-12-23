@@ -24,39 +24,20 @@ export class EntretenimientoComponent implements OnInit {
     config.wrap = true;
     config.showNavigationIndicators = true;
 
-    this.isVisibleArray = [];
-
-  }
-  ngOnInit(): void {
+    }ngOnInit(): void {
     this.busquedaGit();
-  }
-
-  activateHover($event){
-    this.isVisibleArray[$event.target.id] = true;
-  }
-  disableHover($event){
-    this.isVisibleArray[$event.target.id] = false;
-  }
-  disableAllHover(){
-    for (const desc in this.isVisibleArray) {
-      this.isVisibleArray[desc] = false;
     }
-  }
 
-  redirect($event){
+    redirect($event){
     window.open(
               this.resultadoBusqueda[$event.target.id].url, "_blank","noopener noreferrer");
-  }
+    }
 
-  busquedaGit = () => {
+    busquedaGit = () => {
     this.ServicioBuscarService.busquedaFederada(["kudasai", "anmo"]).then((response) => {
       this.resultadoBusqueda = response;
-      console.log(this.resultadoBusqueda);
       for (let noticia = 5; noticia < this.resultadoBusqueda.length; noticia++) {
-        let resumen = this.resultadoBusqueda[noticia].description.split('.')[0]+'. '+this.resultadoBusqueda[noticia].description.split('.')[1];
-        if (resumen.length<250) {
-          resumen += this.resultadoBusqueda[noticia].description.split('.')[2];
-        }
+        let resumen = this.resultadoBusqueda[noticia].description.split('.')[0]+'. ';
         resumen = resumen.split("Este articulo pertenece")[0];
         this.resultadoBusqueda[noticia].description = resumen;
       }
@@ -66,4 +47,3 @@ export class EntretenimientoComponent implements OnInit {
     })
   }
 }
-

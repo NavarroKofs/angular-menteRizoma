@@ -25,6 +25,8 @@ import { CmpPaginationListComponent } from './components/cmp-pagination-list/cmp
 import { CmpBuscadorComponent } from './components/cmp-buscador/cmp-buscador.component';
 import { CmpBusquedaFederadaComponent } from './components/cmp-busqueda-federada/cmp-busqueda-federada.component';
 import { CmpLoadingComponent } from './components/cmp-loading/cmp-loading.component';
+import { SeparatorBarComponent } from './components/separator-bar/separator-bar.component';
+import { CmpSectionCardComponent } from './components/cmp-section-card/cmp-section-card.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { CmpLoadingComponent } from './components/cmp-loading/cmp-loading.compon
     CmpPaginationListComponent,
     CmpBuscadorComponent,
     CmpBusquedaFederadaComponent,
-    CmpLoadingComponent
+    CmpLoadingComponent,
+    SeparatorBarComponent,
+    CmpSectionCardComponent
   ],
   imports: [
     BrowserModule,

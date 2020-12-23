@@ -9,7 +9,6 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
-
     //interfaz de busqueda
     resultadoBusqueda: IntBusqueda[];
     //parametro de busqueda de la ruta Search

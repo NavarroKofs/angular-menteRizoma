@@ -1,0 +1,7 @@
+<div class="card-desc" [id]="i" *ngIf="isVisibleArray[i];" (mouseout)="disableAllHover()">
+  <p>{{card.description}}</p>
+</div>
+<img class="card-img-top" [id]="i" (mouseover)="activateHover($event)" [src]="card.image" alt="Card image cap">
+<div class="card-body">
+  <a class="card-text" [href]="card.url" target="_blank" rel="noopener noreferrer">{{card.title}}</a>
+</div>

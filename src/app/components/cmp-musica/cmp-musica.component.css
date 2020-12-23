@@ -31,8 +31,7 @@ ngb-carousel .carousel-caption > .name {
 .container-fluid {
   max-width: 900px !important;
   max-height: 500px !important;
-  margin: 0;
-  margin-left: 10%;
+  margin-left: 8%;
 }
 
 ngb-carousel .wrapper > span {
@@ -96,20 +95,6 @@ ngb-carousel  {
   flex-wrap: wrap;
 }
 
-
-.card {
-  margin: 20px;
-}
-
-
-.card > img {
-  background-color: rgba(0,0,0,0.6);
-  filter:brightness(0.6);
-  width: 18rem;
-  height: 12rem;
-  object-fit: cover;
-}
-
 .page {
   width: 80%;
   margin: auto;
@@ -130,6 +115,10 @@ ngb-carousel  {
   margin: 0 0 5px 0;
 }
 
+.card{
+  margin: 10px !important;
+}
+
 .card-list > img {
   height: 500px;
   object-fit: cover;
@@ -139,7 +128,6 @@ ngb-carousel  {
   position: absolute;
   bottom: 0%;
 }
-
 
 .list-items {
   width: 100%;
@@ -162,7 +150,6 @@ ngb-carousel  {
   margin: 0 0 5px 0;
 }
 
-
 .list-items > ul > li > img {
   width: 30%;
 }
@@ -174,36 +161,4 @@ ngb-carousel  {
 
 .section-principal {
   display: flex;
-}
-
-.card-desc{
-  text-overflow: ellipsis;
-  overflow: hidden; 
-  font-weight: bold;
-  font-family: sans-serif;
-  color: white;
-  z-index: 3;
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 191px;
-  width: 288px;
-  border-radius: 0 0 5px 5px;
-  background-color: #000000b0;
-}
-
-.card-desc > p {
-  margin: 5%;
-  width:90%;
-  text-align: justify;
-}
-
-.card-img-top{
-  object-fit:fill !important;
-}
-
-@media only screen and (max-device-width : 640px) {
-  .card-img-top{
-    width: 246px !important;
-  }
 }

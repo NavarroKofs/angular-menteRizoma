@@ -7,6 +7,10 @@ ngb-carousel .wrapper {
   padding-top: 55%; /* Keep ratio for 900x500 images */
 }
 
+.carousel {
+  margin-left: -2% !important;
+}
+
 ngb-carousel .wrapper > img {
   position: absolute;
   width: 100%;
@@ -32,7 +36,7 @@ ngb-carousel .carousel-caption > .name {
   max-width: 900px !important;
   max-height: 500px !important;
   margin: 0;
-  margin-left: 10%;
+  margin-left: 8%;
 }
 
 ngb-carousel .wrapper > span {

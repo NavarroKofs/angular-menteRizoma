@@ -23,6 +23,7 @@
 
 .container-fluid {
   max-width: 900px;
+  width: 70%;
 }
 
 .section-card-list {
@@ -53,7 +54,7 @@ app-cmp-clima {
   max-height: 165px;
 }
 
-@media only screen and (max-width: 1625px) {
+@media only screen and (max-width: 1200px) {
   .widgets{
     width: 100%;
     display: flex;
