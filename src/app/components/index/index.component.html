@@ -1,0 +1,27 @@
+<app-header></app-header>
+<div class="page" *ngIf="resultadoBusqueda else elseBlock">
+  <section class="section-principal">
+    <div class="container-fluid">
+      <div class="carousel-container">
+        <app-cmp-carousel [resultadoBusqueda]="resultadoBusqueda | slice:0:10"></app-cmp-carousel>
+      </div>
+    </div>
+    <div class="widgets">
+      <app-cmp-clima></app-cmp-clima>
+      <app-cmp-currency></app-cmp-currency>
+    </div>
+  </section>
+  <app-cmp-tiny-divisor></app-cmp-tiny-divisor>
+  <section class="section-card">
+      <app-cmp-card class="card-div" style="width: 18rem;" *ngFor="let card of resultadoBusqueda | slice:11:30; index as i;" [card]=card></app-cmp-card>
+  </section>
+  <app-cmp-tiny-divisor></app-cmp-tiny-divisor>
+  <section class="section-card-list">
+    <app-cmp-card-list-column [resultadoBusqueda]="resultadoBusqueda | slice:32:38"></app-cmp-card-list-column>
+    <app-cmp-card-list-column [resultadoBusqueda]="resultadoBusqueda | slice:39:45"></app-cmp-card-list-column>
+    <app-cmp-card-list-column [resultadoBusqueda]="resultadoBusqueda | slice:46:52"></app-cmp-card-list-column>
+  </section>
+  <br>
+</div>
+<ng-template #elseBlock><app-cmp-loading></app-cmp-loading></ng-template>
+<app-footer></app-footer>

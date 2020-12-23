@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div class="page">
+  <section class="section-principal">
+    <div class="container-fluid" >
+      <div class="carousel-container">
+        <app-cmp-carousel [resultadoBusqueda]="resultadoBusqueda | slice:0:10"></app-cmp-carousel>
+      </div>
+    </div>
+    <ng-template #elseBlock>
+      <div class="container-fluid" >
+        <ngb-carousel>
+            <ng-template ngbSlide>
+                <div class="wrapper view w-100">
+                    <span class="spinner-border"></span>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+      </div>
+    </ng-template>
+  </section>
+  <app-cmp-tiny-divisor></app-cmp-tiny-divisor>
+  <section class="section-card" *ngIf="resultadoBusqueda; else elseBlock">
+    <div class="card" style="width: 18rem;" *ngFor="let card of resultadoBusqueda | slice:6:30; index as i;">
+      <cmp-section-card [card]=card></cmp-section-card>
+    </div>
+  </section>
+  <ng-template #elseBlock>
+  Loading
+  </ng-template>
+  <app-cmp-tiny-divisor></app-cmp-tiny-divisor>
+  <ng-template #elseBlock>Loading</ng-template>
+<app-footer></app-footer>
