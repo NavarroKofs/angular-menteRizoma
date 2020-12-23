@@ -5,6 +5,7 @@ import { CmpBusquedaFederadaComponent } from './components/cmp-busqueda-federada
 import { DeportesComponent } from "./components/cmp-deportes/cmp-deportes.component";
 import { EntretenimientoComponent } from "./components/cmp-entretenimiento/cmp-entretenimiento.component";
 import { MusicaComponent } from "./components/cmp-musica/cmp-musica.component";
+import { NotFoundComponent } from "./components/not-found/not-found.component";
 
 const routes: Routes = [
   { path: '', component: IndexComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
 
   { path: 'musica', component: MusicaComponent},
   { path: 'entretenimiento', component: EntretenimientoComponent},
-  { path: 'LaBusqueda', component: CmpBusquedaFederadaComponent}
+  { path: 'LaBusqueda', component: CmpBusquedaFederadaComponent},
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
