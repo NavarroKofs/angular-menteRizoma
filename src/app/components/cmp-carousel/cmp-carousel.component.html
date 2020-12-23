@@ -1,13 +1,15 @@
 <ngb-carousel *ngIf="resultadoBusqueda; else elseBlock">
     <ng-template ngbSlide *ngFor="let elemento of resultadoBusqueda | slice:0:10; index as i;">
-      <div class="wrapper">
-        <p class="source">{{elemento.source | uppercase}}</p>
-        <img [src]="elemento.image" alt="Random first slide">
-      </div>
-      <div class="carousel-caption">
-        <h3 class="name">{{elemento.title}}</h3>
-        <p>{{elemento.description}}</p>
-      </div>
+      <a class="carousel-element" [href]=elemento.url>
+        <div class="wrapper">
+          <p class="source">{{elemento.source | uppercase}}</p>
+          <img [src]="elemento.image" alt="Random first slide">
+        </div>
+        <div class="carousel-caption">
+          <h3 class="name">{{elemento.title}}</h3>
+          <p class="description">{{elemento.description}}</p>
+        </div>
+      </a>
     </ng-template>
 </ngb-carousel>
 <ng-template #elseBlock>Loading</ng-template>

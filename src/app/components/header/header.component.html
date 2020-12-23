@@ -1,16 +1,20 @@
 <header>
-    <nav class="navigation">
-      <figure class="nav-logo">
-        <a class="nav-logo" href="#"><img class="logo" src="assets/images/logo-mente-rizoma.png"></a>
-
-      </figure>
-      <ul class="nav-menu">
-        <li><a class="bold-option" href="#">Home</a></li>
-        <li><a [routerLink]="['/deportes']">Deportes</a></li>
-        <li><a [routerLink]="['/musica']">Música</a></li>
-        <li><a [routerLink]="['/entretenimiento']">Entretenimiento</a></li>
-        <li><a [routerLink]="['/busqueda']">Buscar</a></li>
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light navigation" style="background-color: #fff;">
+    <figure class="nav-logo">
+      <a class="nav-logo" href="#"><img class="logo" src="assets/images/logo-mente-rizoma.png"></a>
+    </figure>
+    <button class="navbar-toggler collapsed" type="button" (click)="toggleState()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="navbar-collapse" [ngClass]="{ 'collapse': isCollapse }">
+      <ul class="nav-menu mr-auto mt-2 mt-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" [routerLink]="['/deportes']">Deportes</a></li>
+        <li class="nav-item"><a class="nav-link" [routerLink]="['/musica']">Música</a></li>
+        <li class="nav-item"><a class="nav-link" [routerLink]="['/entretenimiento']">Entretenimiento</a></li>
+        <li class="nav-item"><a class="nav-link" [routerLink]="['/busqueda']">Buscar</a></li>
       </ul>
-    </nav>
-    <hr>
+    </div>
+  </nav>
 </header>

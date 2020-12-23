@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router'
+import { Component, OnInit, Input } from '@angular/core';
+import { Routes, RouterModule, Router } from '@angular/router'
 import { ActivatedRoute } from '@angular/router';
+
 
 
 @Component({
@@ -11,7 +12,15 @@ import { ActivatedRoute } from '@angular/router';
 export class HeaderComponent implements OnInit {
   logo: string;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, router: Router) { }
+
+  isCollapse = true;
+  toggleState() {
+    let foo = this.isCollapse
+    this.isCollapse = foo === false ? true : false;
+  }
+  loggedIn = false;
+  loggedUser:any = null;
 
   ngOnInit(): void {
     this.logo = "../../images/logo-mente-rizoma.png";

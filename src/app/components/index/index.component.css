@@ -6,7 +6,7 @@
   flex-wrap: wrap;
 }
   
-.cards {
+.card-div {
   margin: 20px;
 }
 
@@ -16,7 +16,13 @@
 }
 
 .carousel-container{
-  padding-top: 80px !important;
+  width: 100%;
+  max-width: 900px;
+  height: 100%;
+}
+
+.container-fluid {
+  max-width: 900px;
 }
 
 .section-card-list {
@@ -30,15 +36,64 @@
 
 .section-principal {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .widgets {
   margin: auto;
+  width: 30%;
 }
 
 app-cmp-clima {
   margin: auto;
-  width: 90%;
+  width: 100%;
   max-width: 500px;
   max-height: 165px;
+}
+
+@media only screen and (max-width: 1625px) {
+  .widgets{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap ;
+  }
+
+  app-cmp-clima {
+    margin: auto;
+    width: 50%;
+  }
+
+  app-cmp-currency {
+    width: 50%;
+  }
+
+  .container-fluid {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .carousel-container {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .page {
+    width: 100%;
+  }
+
+  .container-fluid {
+    margin: 0px !important;
+  }
+
+  .widgets {
+    width: 100%;
+    margin: 0px;
+  }
+
+  .card-div {
+    width: 200px;
+  }
 }
