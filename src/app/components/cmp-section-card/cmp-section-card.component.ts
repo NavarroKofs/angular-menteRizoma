@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IntBusqueda } from "../../interfaces/int-busqueda";
 
 @Component({
@@ -7,30 +7,10 @@ import { IntBusqueda } from "../../interfaces/int-busqueda";
   styleUrls: ['./cmp-section-card.component.css']
 })
 export class CmpSectionCardComponent implements OnInit {
-  
-  @Input ('card') card: IntBusqueda; 
-  @Input ('i') i: number;
-    
-  //isvisibleArray
-  isVisibleArray: boolean[];
 
-  constructor() {
-    this.isVisibleArray = [];
-  }
+  @Input ('card') card: IntBusqueda;
 
   ngOnInit(): void {
   }
-
-  activateHover($event){
-    this.isVisibleArray[$event.target.id] = true;
-   }
-   disableHover($event){
-    this.isVisibleArray[$event.target.id] = false;
-   }
-   disableAllHover(){
-    for (const desc in this.isVisibleArray) {
-      this.isVisibleArray[desc] = false;
-    }
-   }
 
 }

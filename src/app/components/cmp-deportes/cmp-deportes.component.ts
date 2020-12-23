@@ -13,9 +13,6 @@ export class DeportesComponent implements OnInit {
     resultadoBusqueda: IntBusqueda[];
     //parametro de busqueda de la ruta Search
     busquedaQuery: string;
-    
-    //isvisibleArray
-    isVisibleArray: boolean[];
 
   constructor(private ServicioBuscarService: SrvBusquedaService, config: NgbCarouselConfig) {
     config.interval = 5000;

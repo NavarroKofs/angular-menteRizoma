@@ -149,7 +149,7 @@ ngb-carousel  {
   width: 100%;
 }
 
-.card-text {  
+.card-text {
   font-family: 'Raleway', sans-serif;
   font-size: 20px;
   color: black !important;
@@ -182,7 +182,7 @@ ngb-carousel  {
 
 .card-desc{
   text-overflow: ellipsis;
-  overflow: hidden; 
+  overflow: hidden;
   font-weight: bold;
   font-family: sans-serif;
   color: white;

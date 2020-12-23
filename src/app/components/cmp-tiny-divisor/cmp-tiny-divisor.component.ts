@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CmpTinyDivisorComponent implements OnInit {
 
-  constructor() { }
+  uncracked: boolean;
+  special: boolean;
+  cracking: number;
+
+  constructor() {
+    var randNumber = Math.random();
+    this.special = randNumber>.9;
+
+    this.uncracked = true;
+    this.cracking = 0;
+  }
 
   ngOnInit(): void {
+  }
+
+  crack(){
+    this.cracking++;
+    this.uncracked = this.cracking<5;
   }
 
 }

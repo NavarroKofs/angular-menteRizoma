@@ -1,6 +1,6 @@
 .card-desc{
   text-overflow: ellipsis;
-  overflow: hidden; 
+  overflow: hidden;
   font-weight: bold;
   font-family: sans-serif;
   color: white;
@@ -33,4 +33,11 @@
   width: 18rem;
   height: 12rem;
   object-fit: cover;
+}
+
+.only-show-on-hover {
+    visibility: hidden;
+}
+.card-desc:hover p.only-show-on-hover  {
+    visibility: visible;
 }
