@@ -28,6 +28,7 @@ import { CmpLoadingComponent } from './components/cmp-loading/cmp-loading.compon
 import { SeparatorBarComponent } from './components/separator-bar/separator-bar.component';
 import { CmpSectionCardComponent } from './components/cmp-section-card/cmp-section-card.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { CmpWidgetSpotifyComponent } from './components/cmp-widget-spotify/cmp-widget-spotify.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     CmpLoadingComponent,
     SeparatorBarComponent,
     CmpSectionCardComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CmpWidgetSpotifyComponent
   ],
   imports: [
     BrowserModule,
