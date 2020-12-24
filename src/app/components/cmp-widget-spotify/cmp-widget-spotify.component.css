@@ -1,6 +1,7 @@
 .contenedor-widget-musica {
-    position: absolute;
-    right: 1%;
+    position : sticky;
+    bottom : 0;
+    margin-left: 81%;
 }
 
 .widget-musica {

@@ -7,7 +7,6 @@
       </div>
     </div>
   </section>
-  <app-cmp-widget-spotify></app-cmp-widget-spotify>
   <app-cmp-tiny-divisor></app-cmp-tiny-divisor>
   <section class="section-card">
     <div class="card" style="width: 18rem;" *ngFor="let card of resultadoBusqueda | slice:11:30; index as i;">
@@ -18,3 +17,4 @@
 </div>
 <ng-template #elseBlock><app-cmp-loading></app-cmp-loading></ng-template> 
 <app-footer></app-footer>
+<app-cmp-widget-spotify></app-cmp-widget-spotify>
