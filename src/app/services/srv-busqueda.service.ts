@@ -79,8 +79,13 @@ export class SrvBusquedaService {
                 numFeeds.push((respuesta).length);
                 for (let aux = 0; aux < (respuesta).length; aux++) {
                   let image = this.urlImgNotFound;
-                  if (respuesta[aux].link['media:content']['media:thumbnail']) {
+                  try {
                     image = respuesta[aux].link['media:content']['media:thumbnail'][0]['@url'];
+                  } catch (error) {
+                    image = this.urlImgNotFound;
+                  }
+                  if (image == undefined) {
+                    image = this.urlImgNotFound;
                   }
                   resultado = this.generateResultado("bbc", respuesta[aux].title, respuesta[aux].link['@href'], image , respuesta[aux].summary);
                   listaBbc.push(resultado as IntBusqueda);
@@ -137,7 +142,11 @@ export class SrvBusquedaService {
                 respuesta = response["rss"].channel.item;
                 numFeeds.push((respuesta).length);
                 for (let aux = 0; aux < (respuesta).length; aux++) {
-                  resultado = this.generateResultado("espn", respuesta[aux].title, respuesta[aux].link, respuesta[aux].image, respuesta[aux].description);
+                  let image = respuesta[aux].image;
+                  if (image == undefined) {
+                    image = this.urlImgNotFound;
+                  }
+                  resultado = this.generateResultado("espn", respuesta[aux].title, respuesta[aux].link, image, respuesta[aux].description);
                   listaDeportes.push(resultado as IntBusqueda);
                 }
                 break;

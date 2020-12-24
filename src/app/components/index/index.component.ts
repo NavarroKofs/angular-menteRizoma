@@ -29,7 +29,6 @@ export class IndexComponent implements OnInit {
   busquedaGit = () => { 
     this.ServicioBuscarService.busquedaFederada(["reforma", "bbc", "deportes", "kudasai", "musica", "anmo"]).then((response) => {
       this.resultadoBusqueda = response;
-      console.log(this.resultadoBusqueda);
     }, (error) => {
       alert("Error: " + error.statusText)
     })
