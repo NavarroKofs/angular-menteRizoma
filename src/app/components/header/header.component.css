@@ -40,9 +40,11 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    align-items: center;
     list-style-type: none;
     flex-wrap: wrap;
-    padding: 0;
+    padding: 0px 5px;
+    margin: 0px;
 }
 
 .nav-menu > li > a {
@@ -50,7 +52,6 @@ header {
     color: var(--black);
     font-size: 16px;
     font-weight: normal;
-    margin-left: 14px;
     text-transform: uppercase;
 }
 
@@ -65,9 +66,25 @@ header {
     font-weight: bold;
 }
 
-@media only screen and (max-width: 400px) {
+.form-inline {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 1300px) {
     .nav-logo {
         width: 180px;
         height: 35px;
+    }
+
+    .navigation {
+        width: 95%;
+    }
+
+    .nav-menu > li > a {
+        font-size: 14px;
     }
 }

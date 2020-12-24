@@ -14,7 +14,7 @@ const routes: Routes = [
 
   { path: 'musica', component: MusicaComponent},
   { path: 'entretenimiento', component: EntretenimientoComponent},
-  { path: 'LaBusqueda', component: CmpBusquedaFederadaComponent},
+  { path: 'buscar/:query', component: CmpBusquedaFederadaComponent},
   { path: '**', component: NotFoundComponent }
 ];
 
