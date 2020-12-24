@@ -6,17 +6,6 @@
         <app-cmp-carousel [resultadoBusqueda]="resultadoBusqueda | slice:0:6"></app-cmp-carousel>
       </div>
     </div>
-    <ng-template #elseBlock>
-      <div class="container-fluid" >
-        <ngb-carousel>
-            <ng-template ngbSlide>
-                <div class="wrapper view w-100">
-                    <span class="spinner-border"></span>
-                </div>
-            </ng-template>
-        </ngb-carousel>
-      </div>
-    </ng-template>
   </section>
   <app-cmp-tiny-divisor></app-cmp-tiny-divisor>
   <section class="section-card">
