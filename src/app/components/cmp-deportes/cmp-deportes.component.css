@@ -36,7 +36,6 @@ ngb-carousel .carousel-caption > .name {
   max-width: 900px !important;
   max-height: 500px !important;
   margin: 0;
-  margin-left: 8%;
 }
 
 ngb-carousel .wrapper > span {
@@ -178,6 +177,8 @@ ngb-carousel  {
 
 .section-principal {
   display: flex;
+  align-items: center;
+	flex-flow: column;
 }
 
 .card-desc{
@@ -204,4 +205,10 @@ ngb-carousel  {
 
 .card-img-top{
   object-fit:fill !important;
+}
+
+app-footer{
+  position: absolute;
+  left: 0;
+  width: 100%;
 }

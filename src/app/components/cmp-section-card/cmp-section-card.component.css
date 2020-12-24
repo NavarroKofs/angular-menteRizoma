@@ -34,3 +34,9 @@
   height: 12rem;
   object-fit: cover;
 }
+
+@media only screen and (max-device-width: 768px) {
+  .card-img-top{
+    width: 267px;
+  }
+}

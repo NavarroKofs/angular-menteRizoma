@@ -23,10 +23,8 @@
     <div class="card" style="width: 18rem;" *ngFor="let card of resultadoBusqueda | slice:6:30; index as i;">
       <cmp-section-card [card]=card [i]=i></cmp-section-card>
     </div>
-  </section>
-  <ng-template #elseBlock>
-  Loading
-  </ng-template>
+  </section>  
+  <ng-template #elseBlock><app-cmp-loading></app-cmp-loading></ng-template>
   <app-cmp-tiny-divisor></app-cmp-tiny-divisor>
-  <ng-template #elseBlock>Loading</ng-template>
+  <ng-template #elseBlock><app-cmp-loading></app-cmp-loading></ng-template>
 <app-footer></app-footer>
