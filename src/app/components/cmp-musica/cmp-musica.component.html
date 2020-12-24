@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="page">
+<div class="page" *ngIf="resultadoBusqueda; else elseBlock">
   <section class="section-principal">
     <div class="container-fluid" >
       <div class="carousel-container">
@@ -24,7 +24,7 @@
       <cmp-section-card [card]=card [i]=i></cmp-section-card>
     </div>
   </section>
-  <ng-template #elseBlock><app-cmp-loading></app-cmp-loading></ng-template>
   <app-cmp-tiny-divisor></app-cmp-tiny-divisor>
-  <ng-template #elseBlock><app-cmp-loading></app-cmp-loading></ng-template> 
+</div>
+<ng-template #elseBlock><app-cmp-loading></app-cmp-loading></ng-template> 
 <app-footer></app-footer>
