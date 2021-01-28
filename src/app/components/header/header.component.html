@@ -13,6 +13,7 @@
         <li class="nav-item"><a class="nav-link" [routerLink]="['/deportes']">Deportes</a></li>
         <li class="nav-item"><a class="nav-link" [routerLink]="['/musica']">Música</a></li>
         <li class="nav-item"><a class="nav-link" [routerLink]="['/entretenimiento']">Entretenimiento</a></li>
+        <li class="nav-item"><a class="nav-link" [routerLink]="['/acceso']">Acceso</a></li>
       </ul>
       <form (ngSubmit) ="sendTF()" class="form-inline my-2 my-lg-0" #modelTF="ngForm">
         <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search" [(ngModel)]="frmTemplate.query" name="bsk">

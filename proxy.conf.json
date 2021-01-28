@@ -3,5 +3,11 @@
         "target": "https://api.factmaven.com",
         "secure": false,
         "changeOrigin": true
+    },
+    "/api/*": {
+        "target": "http://localhost:3000",
+        "secure": false,
+        "loglevel": "debug",
+        "changeOrigin": true
     }
 }
