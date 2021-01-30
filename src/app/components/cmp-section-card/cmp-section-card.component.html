@@ -6,6 +6,6 @@
     <img class="card-img-top" [id]="i" (mouseover)="activateHover($event)" [src]="card.image" alt="Card image cap">
   </figure>
   <div class="card-body">
-    <a class="card-text" [href]="card.url" target="_blank" rel="noopener noreferrer">{{card.title}}</a>
+    <a class="card-text" [routerLink]="['/noticia', card.noticeId]" target="_blank" rel="noopener noreferrer">{{card.title}}</a>
   </div>
 </div>

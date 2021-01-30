@@ -31,6 +31,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CmpWidgetSpotifyComponent } from './components/cmp-widget-spotify/cmp-widget-spotify.component';
 import { AccesoComponent } from './components/cmp-acceso/cmp-acceso.component';
 import { CmpRegistrarseComponent } from './components/cmp-registrarse/cmp-registrarse.component';
+import { CmpNoticeComponent } from './components/cmp-notice/cmp-notice.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { CmpRegistrarseComponent } from './components/cmp-registrarse/cmp-regist
     CmpWidgetSpotifyComponent,
     AccesoComponent,
     CmpRegistrarseComponent,
+    CmpNoticeComponent,
   ],
   imports: [
     BrowserModule,

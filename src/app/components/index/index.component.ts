@@ -24,12 +24,12 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
     this.busquedaGit();
   }
-
-
+  
   busquedaGit = () => { 
     this.ServicioBuscarService.busquedaFederada(["reforma", "bbc", "deportes", "kudasai", "musica", "anmo"]).then((response) => {
       this.resultadoBusqueda = response;
     }, (error) => {
+      console.log(error);
       alert("Error: " + error.statusText)
     })
   }

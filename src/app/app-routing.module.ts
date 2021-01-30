@@ -8,6 +8,7 @@ import { MusicaComponent } from "./components/cmp-musica/cmp-musica.component";
 import { AccesoComponent } from "./components/cmp-acceso/cmp-acceso.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { CmpRegistrarseComponent } from './components/cmp-registrarse/cmp-registrarse.component';
+import { CmpNoticeComponent } from './components/cmp-notice/cmp-notice.component';
 import {LoginService} from "./services/login.service"
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'deportes', component: DeportesComponent},
 
   { path: 'musica', component: MusicaComponent},
+  { path: 'noticia/:id', component: CmpNoticeComponent},
   { path: 'acceso', component: AccesoComponent},
   { path: 'registrarse', component: CmpRegistrarseComponent},
   { path: 'entretenimiento', component: EntretenimientoComponent},
