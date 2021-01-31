@@ -32,6 +32,8 @@ import { CmpWidgetSpotifyComponent } from './components/cmp-widget-spotify/cmp-w
 import { AccesoComponent } from './components/cmp-acceso/cmp-acceso.component';
 import { CmpRegistrarseComponent } from './components/cmp-registrarse/cmp-registrarse.component';
 import { CmpNoticeComponent } from './components/cmp-notice/cmp-notice.component';
+import { CmpComentarioComponent } from './components/cmp-comentario/cmp-comentario.component';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,7 @@ import { CmpNoticeComponent } from './components/cmp-notice/cmp-notice.component
     AccesoComponent,
     CmpRegistrarseComponent,
     CmpNoticeComponent,
+    CmpComentarioComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,8 @@ import { CmpNoticeComponent } from './components/cmp-notice/cmp-notice.component
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    EditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

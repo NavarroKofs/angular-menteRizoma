@@ -29,7 +29,6 @@ export class IndexComponent implements OnInit {
     this.ServicioBuscarService.busquedaFederada(["reforma", "bbc", "deportes", "kudasai", "musica", "anmo"]).then((response) => {
       this.resultadoBusqueda = response;
     }, (error) => {
-      console.log(error);
       alert("Error: " + error.statusText)
     })
   }

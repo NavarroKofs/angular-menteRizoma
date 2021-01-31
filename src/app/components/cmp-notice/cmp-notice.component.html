@@ -12,15 +12,38 @@
             possimus, veniam magni quis!</p>
           <a href="#" class="btn btn-primary">Read More &rarr;</a>
         </div>
+        <form #newComment="ngForm" (ngSubmit)="newComment(newComment.value)" >
+          <input name="commentContent" type="text">
+          <input type="submit" class="btn btn-primary" type="submit" value="Publicar">
+        </form>
+
+<!--
+          <editor name="comment" [init]="{
+            height: 200,
+            menubar: false,
+            plugins: [],
+            toolbar:
+              'undo redo | formatselect | bold italic backcolor | \
+              alignleft aligncenter alignright alignjustify | \
+              bullist numlist outdent indent | removeformat | help'
+          }" ngModel></editor>
+
+-->
+        
         <div class="card-footer">
           <h2 class="text-center"><strong>Comentarios</strong></h2>
-          <div id="comentaries-container"></div>
+          <div id="comentaries-container" *ngIf="comentarios else elseBlock">
+            <app-cmp-comentario *ngFor="let comentario of comentarios index as i;" [comentario]=comentario>
+            </app-cmp-comentario>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
 </div>
-<ng-template #elseBlock><app-cmp-loading></app-cmp-loading></ng-template>
+<ng-template #elseBlock>
+  <app-cmp-loading></app-cmp-loading>
+</ng-template>
 <app-footer></app-footer>
 <!-- /.container -->

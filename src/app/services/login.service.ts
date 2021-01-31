@@ -14,7 +14,6 @@ export class LoginService {
 
   login = (data) => {
     let promise = new Promise ((resolve, reject) => {
-      console.log();
       this.http.post<any>('/api/v1/login', {
         "email": data['user'],
         "password": data['password']
@@ -23,6 +22,7 @@ export class LoginService {
       .then( (response) => {
         if(!response['lError']){
           localStorage.setItem('userToken',response['cToken']);
+          localStorage.setItem('userId',response['id']);
           this.routes.navigate(['/'])
         }else{
           alert('El usuario no existe');

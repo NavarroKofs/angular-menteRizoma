@@ -1,0 +1,10 @@
+<div *ngIf="comentario.isDeleted == 0">
+  <div class="d-flex flex-row ">
+    <p><strong>{{comentario.author}}</strong></p>
+    <p *ngIf="comentario.isEdited" class="text-muted edited">(editado)</p>
+  </div>
+  <p>{{comentario.comment}}</p>
+  <button *ngIf="comentario.userId == currentUserId" type="button" class="btn btn-danger" (click)="deleteThis()">Eliminar</button>
+  <button *ngIf="comentario.userId == currentUserId" type="button" class="btn ml-2 btn-secondary">Editar</button>
+  <hr>
+</div>
