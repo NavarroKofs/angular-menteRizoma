@@ -1,14 +1,14 @@
 .card-img-top {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
+    display: flex;
+    height: 150px;
 }
 
 .figure-card-img-top {
     background-color: rgba(0,0,0,0.6);
     filter:brightness(0.6);
     width: 288px;
-    height: 292px;
+    height: 150px;
     margin-bottom: 0;
 }
 
@@ -31,6 +31,10 @@
     font-size: 14px;
     color: black;
     text-overflow: ellipsis;
+}
+
+.card-div{
+    border: 1px solid black;
 }
 
 @media only screen and (max-width: 400px) {

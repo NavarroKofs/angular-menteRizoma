@@ -38,25 +38,51 @@ export class SrvComentariosService {
     return promise;
   }
 
-  deleteComment = (commentId: string): void => {
-    this.http.delete(`/api/v1/comment/${commentId}`)
+  deleteComment = (commentId: string) => {
+    let userToken = localStorage.getItem('userToken');
+    let userId = localStorage.getItem('userId');
+    let promise = new Promise((resolve, reject) => {
+      this.http.delete(`/api/v1/comment/${commentId}?userId=${userId}`,{ headers: {'token': userToken} })
       .toPromise()
-      .then((response) => {
-        window.location.reload();
+      .then((response) => {    
+          window.location.reload();
+          localStorage.setItem('userToken', response['cToken']);
+      }, (error) => {
+        console.log(error);
+        
+        reject(error);
       });
+    });
+    return promise;
+  }
+  
+  editComment = (commentContent: string, commentId: string) => {
+    let userId = localStorage.getItem('userId');
+    let userToken = localStorage.getItem('userToken');
+
+    let promise = new Promise((resolve, reject) => {
+      this.http.put(`/api/v1/comment/${commentId}`, 
+      {
+        "userId": userId,
+        "comment": commentContent
+      }
+      , { headers: {'token': userToken} })
+        .toPromise()
+        .then((response) => {          
+          console.log(response)
+          localStorage.setItem('userToken', response['cToken']);
+          window.location.reload();
+        }, (error)=>{
+          console.log(error);
+          
+        });
+    });
   }
 
   newComment = (commentContent: string, noticeId: string) => {
     let userToken = localStorage.getItem('userToken');
     let userId = localStorage.getItem('userId');
     let user = localStorage.getItem('userName');
-
-    console.log(noticeId);
-    console.log(userId);
-    console.log(commentContent);
-    console.log(user);
-    console.log(userToken);
-    
 
     let promise = new Promise((resolve, reject) => {
       this.http.post<any>(`/api/v1/comment`, 
@@ -70,12 +96,15 @@ export class SrvComentariosService {
         .toPromise()
         .then((response) => {
           if(!response['lError']){
+            //localStorage.setItem('userToken', response['cToken']);
             window.location.reload();
           }else{
+            console.log(response);
             alert("Algo salió mal");
           }
         }, (error) => {
           console.log(error);
+          alert("Debe iniciar sesión para comentar")
         })
     });
     return promise;

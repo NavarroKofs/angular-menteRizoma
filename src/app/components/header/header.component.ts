@@ -17,7 +17,11 @@ export class HeaderComponent implements OnInit {
   //template-driven form
   frmTemplate = new ClsBusquedaModelo('');
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  userHasToken: string = null;
+
+  constructor(private route: ActivatedRoute, private router: Router) { 
+    this.userHasToken = localStorage.getItem('userToken');
+  }
 
   isCollapse = true;
   toggleState() {
@@ -36,4 +40,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/buscar/' + this.frmTemplate.query])
   }
 
+  logout = () =>{
+    localStorage.setItem('userToken', "");
+    window.location.reload();
+  }
 }

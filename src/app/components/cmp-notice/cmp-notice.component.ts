@@ -24,7 +24,6 @@ export class CmpNoticeComponent implements OnInit {
   ngOnInit(): void {
     this.getComments();
     this.getNotice();
-
     
     tinymce.init({
       selector: 'textarea#comentInput',
