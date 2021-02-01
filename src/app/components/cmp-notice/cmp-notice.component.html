@@ -1,46 +1,31 @@
 <app-header></app-header>
 <!-- Page Content -->
 <div class="notice-container container">
-  <div class="row d-flex justify-content-center">
-    <div class="col-md-10 ml-4">
-      <div class="card mb-4">
-        <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-        <div class="card-body">
-          <h2 class="card-title">Post Title</h2>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque,
-            nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus
-            possimus, veniam magni quis!</p>
-          <a href="#" class="btn btn-primary">Read More &rarr;</a>
-        </div>
-        <form #newComment="ngForm" (ngSubmit)="newComment(newComment.value)" >
-          <input name="commentContent" type="text">
-          <input type="submit" class="btn btn-primary" type="submit" value="Publicar">
-        </form>
-
-<!--
-          <editor name="comment" [init]="{
-            height: 200,
-            menubar: false,
-            plugins: [],
-            toolbar:
-              'undo redo | formatselect | bold italic backcolor | \
-              alignleft aligncenter alignright alignjustify | \
-              bullist numlist outdent indent | removeformat | help'
-          }" ngModel></editor>
-
--->
-        
-        <div class="card-footer">
-          <h2 class="text-center"><strong>Comentarios</strong></h2>
-          <div id="comentaries-container" *ngIf="comentarios else elseBlock">
-            <app-cmp-comentario *ngFor="let comentario of comentarios index as i;" [comentario]=comentario>
-            </app-cmp-comentario>
+  <div id="comentaries-container" *ngIf="noticia else elseBlock">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-10 ml-4">
+        <div class="card mb-4">
+          <img class="card-img-top" src="{{noticia.image}}" alt="Card image cap">
+          <div class="card-body">
+            <h2 class="card-title">{{noticia.title}}</h2>
+            <p class="card-text">{{noticia.description}}</p>
+          </div>          
+          
+          <div class="card-footer">
+            <h2 class="text-center"><strong>Comentarios</strong></h2>
+            <form #userlogin="ngForm" (ngSubmit)="newComment(userlogin.value)" >
+              <editor id="comentInput" ngmodel></editor>
+              <input type="submit" class="btn btn-primary m-2" value="Publicar">
+            </form>
+            <div id="comentaries-container" *ngIf="comentarios else elseBlock">
+              <app-cmp-comentario *ngFor="let comentario of comentarios index as i;" [comentario]=comentario>
+              </app-cmp-comentario>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </div>
 <ng-template #elseBlock>
   <app-cmp-loading></app-cmp-loading>

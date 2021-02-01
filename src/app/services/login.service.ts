@@ -23,6 +23,7 @@ export class LoginService {
         if(!response['lError']){
           localStorage.setItem('userToken',response['cToken']);
           localStorage.setItem('userId',response['id']);
+          localStorage.setItem('userName',response['username']);
           this.routes.navigate(['/'])
         }else{
           alert('El usuario no existe');

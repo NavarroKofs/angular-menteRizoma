@@ -214,6 +214,20 @@ export class SrvBusquedaService {
     return promesa;
   }
 
+  getNotice = (id: string): Promise<IntBusqueda> => {
+    let resultado = {};
+    let promesa = new Promise<IntBusqueda>((resolve, reject) => {
+      this.http.get(`/api/v1/publication/${id}`)
+      .toPromise()
+      .then((response) => {
+        let notice = response['data'][0];
+        resultado = this.generateResultado(notice.id, notice.source, notice.name, "", notice.img, notice.description);
+        resolve(resultado as IntBusqueda);
+      });
+    });
+    return promesa;
+  }
+
   private aleatorizarResultados = (arr1: IntBusqueda[]) => {
     arr1.sort(function () { return Math.random() - 0.5 });
     return arr1;
