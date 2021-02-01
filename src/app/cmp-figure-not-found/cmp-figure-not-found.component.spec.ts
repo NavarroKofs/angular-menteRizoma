@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AccesoComponent } from './cmp-acceso.component';
+import { CmpFigureNotFoundComponent } from './cmp-figure-not-found.component';
 
-describe('CmpAccesoComponent', () => {
-  let component: AccesoComponent;
-  let fixture: ComponentFixture<AccesoComponent>;
+describe('CmpFigureNotFoundComponent', () => {
+  let component: CmpFigureNotFoundComponent;
+  let fixture: ComponentFixture<CmpFigureNotFoundComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AccesoComponent ]
+      declarations: [ CmpFigureNotFoundComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AccesoComponent);
+    fixture = TestBed.createComponent(CmpFigureNotFoundComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

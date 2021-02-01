@@ -34,6 +34,9 @@ import { CmpRegistrarseComponent } from './components/cmp-registrarse/cmp-regist
 import { CmpNoticeComponent } from './components/cmp-notice/cmp-notice.component';
 import { CmpComentarioComponent } from './components/cmp-comentario/cmp-comentario.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
+import { CmpFigureNotFoundComponent } from './cmp-figure-not-found/cmp-figure-not-found.component';
+import { CmpResetPasswordComponent } from "./components/cmp-reset-password/cmp-reset-password.component";
+import { CmpInsertResetCodeComponent } from './components/cmp-insert-reset-code/cmp-insert-reset-code.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +65,10 @@ import { EditorModule } from '@tinymce/tinymce-angular';
     AccesoComponent,
     CmpRegistrarseComponent,
     CmpNoticeComponent,
-    CmpComentarioComponent
+    CmpComentarioComponent,
+    CmpFigureNotFoundComponent,
+    CmpResetPasswordComponent,
+    CmpInsertResetCodeComponent
   ],
   imports: [
     BrowserModule,

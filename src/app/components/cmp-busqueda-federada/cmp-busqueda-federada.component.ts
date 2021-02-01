@@ -30,16 +30,11 @@ export class CmpBusquedaFederadaComponent implements OnInit {
       this.busquedaQueryGet = params.get('query');
       this.frmTemplate.query = params.get('query');
       this.busquedaGit();
-     });
+    });
   }
 
-  busquedaGit = () => { 
-    console.log("a");
-    
+  busquedaGit = () => {
     this.ServicioBuscarService.serchNotice(this.busquedaQuery).then((response) => {
-      console.log(response);
-      
-
       this.resultadoBusqueda = response;
       this.numResultados = this.resultadoBusqueda.length;
     }, (error) => {

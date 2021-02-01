@@ -1,6 +1,6 @@
 <ngb-carousel *ngIf="resultadoBusqueda; else elseBlock">
     <ng-template ngbSlide *ngFor="let elemento of resultadoBusqueda | slice:0:10; index as i;">
-      <a class="carousel-element" [href]=elemento.url>
+      <a class="carousel-element" [routerLink]="['/noticia/' + elemento.noticeId]">
         <div class="wrapper">
           <p class="source">{{elemento.source | uppercase}}</p>
           <img [src]="elemento.image" alt="Random first slide">

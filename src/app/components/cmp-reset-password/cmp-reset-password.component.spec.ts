@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AccesoComponent } from './cmp-acceso.component';
+import { CmpResetPasswordComponent } from './cmp-reset-password.component';
 
-describe('CmpAccesoComponent', () => {
-  let component: AccesoComponent;
-  let fixture: ComponentFixture<AccesoComponent>;
+describe('CmpResetPasswordComponent', () => {
+  let component: CmpResetPasswordComponent;
+  let fixture: ComponentFixture<CmpResetPasswordComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AccesoComponent ]
+      declarations: [ CmpResetPasswordComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AccesoComponent);
+    fixture = TestBed.createComponent(CmpResetPasswordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

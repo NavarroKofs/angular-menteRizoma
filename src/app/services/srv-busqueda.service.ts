@@ -236,14 +236,16 @@ export class SrvBusquedaService {
     let promesa = new Promise<IntBusqueda[]>((resolve, reject) => {
       this.http.get(`/api/v1/search?query=${query}`)
       .toPromise()
-      .then((response) => {    
+      .then((response) => {
         console.log(response);
         response['data'].forEach(notice => {
           resultado.push(this.generateResultado(notice.id, notice.source, notice.name, "", notice.img, notice.description));
         });
-            
         resolve(resultado as IntBusqueda[]);
-      });
+      }).catch(function(error) {
+        resolve(resultado as IntBusqueda[]);
+        }
+      );
     });
     
     return promesa;

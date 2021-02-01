@@ -4,7 +4,8 @@
     <br>
     <div *ngIf="resultadoBusqueda; else elseBlock">
         <p>Se han encontrado {{numResultados}} resultados para {{busquedaQueryGet}}</p>
-        <app-cmp-pagination-list [resultadoBusqueda]="resultadoBusqueda"></app-cmp-pagination-list>
+        <app-cmp-pagination-list [resultadoBusqueda]="resultadoBusqueda" *ngIf="numResultados>0; else notFound"></app-cmp-pagination-list>
+        <ng-template #notFound><app-cmp-figure-not-found></app-cmp-figure-not-found></ng-template>
     </div>
     <ng-template #elseBlock><app-cmp-loading></app-cmp-loading></ng-template>
 </div>

@@ -23,7 +23,6 @@ export class DeportesComponent implements OnInit {
     config.pauseOnHover = true;
     config.wrap = true;
     config.showNavigationIndicators = true;
-
   }
     
   ngOnInit(): void {

@@ -10,6 +10,8 @@ import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { CmpRegistrarseComponent } from './components/cmp-registrarse/cmp-registrarse.component';
 import { CmpNoticeComponent } from './components/cmp-notice/cmp-notice.component';
 import {LoginService} from "./services/login.service"
+import { CmpResetPasswordComponent } from "./components/cmp-reset-password/cmp-reset-password.component";
+import { CmpInsertResetCodeComponent } from "./components/cmp-insert-reset-code/cmp-insert-reset-code.component";
 
 const routes: Routes = [
   { path: '', component: IndexComponent},
@@ -22,6 +24,8 @@ const routes: Routes = [
   { path: 'registrarse', component: CmpRegistrarseComponent},
   { path: 'entretenimiento', component: EntretenimientoComponent},
   { path: 'buscar/:query', component: CmpBusquedaFederadaComponent},
+  { path: 'reestablecer', component: CmpResetPasswordComponent},
+  { path: 'changePassword', component: CmpInsertResetCodeComponent},
   { path: '**', component: NotFoundComponent }
 ];
 
