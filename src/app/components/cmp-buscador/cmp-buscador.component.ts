@@ -20,8 +20,7 @@ export class CmpBuscadorComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe( (params: ParamMap) => { 
       this.busquedaQuery = params.get('query');
-      this.busquedaQueryGet = params.get('query');
-      this.frmTemplate.query = params.get('query');
+      
     });
   }
 

@@ -223,8 +223,29 @@ export class SrvBusquedaService {
         let notice = response['data'][0];
         resultado = this.generateResultado(notice.id, notice.source, notice.name, "", notice.img, notice.description);
         resolve(resultado as IntBusqueda);
+      }, (error) => {
+        console.log(error)
+        reject(error);
       });
     });
+    return promesa;
+  }
+
+  serchNotice = (query: string): Promise<any> =>{    
+    let resultado = [];
+    let promesa = new Promise<IntBusqueda[]>((resolve, reject) => {
+      this.http.get(`/api/v1/search?query=${query}`)
+      .toPromise()
+      .then((response) => {    
+        console.log(response);
+        response['data'].forEach(notice => {
+          resultado.push(this.generateResultado(notice.id, notice.source, notice.name, "", notice.img, notice.description));
+        });
+            
+        resolve(resultado as IntBusqueda[]);
+      });
+    });
+    
     return promesa;
   }
 
