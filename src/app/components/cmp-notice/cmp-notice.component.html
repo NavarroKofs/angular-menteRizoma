@@ -9,7 +9,9 @@
           <div class="card-body">
             <h2 class="card-title">{{noticia.title}}</h2>
             <p class="card-text">{{noticia.description}}</p>
-          </div>          
+            <p>Para ver la nota original, puedes escanear el siguiente código QR</p>
+            <img src="https://chart.googleapis.com/chart?cht=qr&chl={{noticia.url}}&chs=200x200"/>
+          </div>
           
           <div class="card-footer">
             <h2 class="text-center"><strong>Comentarios</strong></h2>

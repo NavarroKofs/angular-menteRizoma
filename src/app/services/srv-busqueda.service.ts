@@ -221,7 +221,7 @@ export class SrvBusquedaService {
       .toPromise()
       .then((response) => {
         let notice = response['data'][0];
-        resultado = this.generateResultado(notice.id, notice.source, notice.name, "", notice.img, notice.description);
+        resultado = this.generateResultado(notice.id, notice.source, notice.name, notice.url, notice.img, notice.description);
         resolve(resultado as IntBusqueda);
       }, (error) => {
         console.log(error)
