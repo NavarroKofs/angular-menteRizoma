@@ -1,0 +1,39 @@
+<app-header></app-header>
+<div class="card bg-light">
+<article class="card-body mx-auto" style="max-width: 400px;">
+	<h4 class="card-title mt-3 text-center">Crear una cuenta</h4>
+	<p class="text-center">Comienza a escribir creando tu cuenta gratis</p>
+<form #userSignin="ngForm" (ngSubmit)="signin(userSignin.value)">
+    <div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        <input name="name" class="form-control" placeholder="Nombre" type="text" ngModel>
+    </div> 
+    <div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        <input name="mail" class="form-control" placeholder="Email" type="text" ngModel>
+    </div> 
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control" placeholder="Contraseña" type="password" name="password1" ngModel>
+    </div>
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control" placeholder="Repita su contraseña" type="password" name="password2" ngModel>
+    </div>                                      
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Crear cuenta </button>
+    </div>      
+    <p class="text-center">¿Ya tienes cuenta? <a class="underlineHover" [routerLink]="['/acceso']"> Acceder</a> </p>                                                                 
+</form>
+</article>
+</div>
+<ng-template #elseBlock><app-cmp-loading></app-cmp-loading></ng-template>
+<app-footer></app-footer>

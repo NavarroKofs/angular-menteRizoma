@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="wrapper fadeInDown form">
+  <div id="formContent">
+    <div class="fadeIn first">
+      <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-emoji-dizzy" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M9.146 5.146a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 1 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 0-.708zm-5 0a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 1 1 .708.708l-.647.646.647.646a.5.5 0 1 1-.708.708L5.5 7.207l-.646.647a.5.5 0 1 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 0-.708zM10 11a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
+      </svg>
+    </div>
+    <form #userlogin="ngForm" (ngSubmit)="login(userlogin.value)" >
+      <input type="text" id="login" class="fadeIn second" name="email" placeholder="Correo" ngModel>
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="Contraseña" ngModel>
+      <input type="submit" class="fadeIn fourth" type="submit" value="Entrar">
+    </form>
+    <div id="formFooter">
+      <a class="underlineHover" [routerLink]="['/registrarse']"> Registrarse</a>
+      <hr>
+      <a class="underlineHover" [routerLink]="['/reestablecer']"> Recuperar contraseña</a>
+    </div>
+  </div>
+</div>
+<ng-template #elseBlock><app-cmp-loading></app-cmp-loading></ng-template>
+<app-footer></app-footer>

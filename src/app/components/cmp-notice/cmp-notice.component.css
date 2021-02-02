@@ -1,0 +1,9 @@
+.notice-container{
+  margin-top: 30px;
+}
+
+#form-user-name{
+  display: 	flex !important;
+  width: 200px;
+  margin-bottom: 10px;
+}

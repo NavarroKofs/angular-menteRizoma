@@ -1,7 +1,11 @@
-<div class="card-desc">
-  <p class="only-show-on-hover">{{card.description}}</p>
-</div>
-<img class="card-img-top" [src]="card.image" alt="Card image cap">
-<div class="card-body">
-  <a class="card-text" [href]="card.url" target="_blank" rel="noopener noreferrer">{{card.title}}</a>
+<div class="card-container">
+  <figure class="figure-card">
+    <div class="card-desc" [id]="i" *ngIf="isVisibleArray[i];" (mouseout)="disableAllHover()">
+      <p>{{card.description}}</p>
+    </div>
+    <img class="card-img-top" [id]="i" (mouseover)="activateHover($event)" [src]="card.image" alt="Card image cap">
+  </figure>
+  <div class="card-body">
+    <a class="card-text" [routerLink]="['/noticia', card.noticeId]" target="_blank" rel="noopener noreferrer">{{card.title}}</a>
+  </div>
 </div>

@@ -1,0 +1,6 @@
+.edit-hideable{
+  display: none;
+}
+textarea {
+  resize: none;
+}

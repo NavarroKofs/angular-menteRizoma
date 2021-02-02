@@ -20,20 +20,17 @@ export class EntretenimientoComponent implements OnInit {
     config.pauseOnHover = true;
     config.wrap = true;
     config.showNavigationIndicators = true;
-
-    }
+  }
 
     ngOnInit(): void {
     this.busquedaGit();
-    }
+  }
 
-    redirect($event){
-    window.open(
-              this.resultadoBusqueda[$event.target.id].url, "_blank","noopener noreferrer");
-    }
+  redirect($event){
+    window.open(this.resultadoBusqueda[$event.target.id].url, "_blank","noopener noreferrer");
+  }
 
-
-    busquedaGit = () => {
+   busquedaGit = () => {
     this.ServicioBuscarService.busquedaFederada(["kudasai", "anmo"]).then((response) => {
       this.resultadoBusqueda = response;
       for (let noticia = 5; noticia < this.resultadoBusqueda.length; noticia++) {

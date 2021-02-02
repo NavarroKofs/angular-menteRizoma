@@ -1,22 +1,11 @@
 <app-header></app-header>
-<div class="page">
+<div class="page" *ngIf="resultadoBusqueda; else elseBlock">
   <section class="section-principal">
     <div class="container-fluid" >
       <div class="carousel-container">
         <app-cmp-carousel [resultadoBusqueda]="resultadoBusqueda | slice:0:10"></app-cmp-carousel>
       </div>
     </div>
-    <ng-template #elseBlock>
-      <div class="container-fluid" >
-        <ngb-carousel>
-            <ng-template ngbSlide>
-                <div class="wrapper view w-100">
-                    <span class="spinner-border"></span>
-                </div>
-            </ng-template>
-        </ngb-carousel>
-      </div>
-    </ng-template>
   </section>
   <app-cmp-tiny-divisor></app-cmp-tiny-divisor>
   <section class="section-card">
@@ -24,9 +13,8 @@
       <cmp-section-card [card]=card></cmp-section-card>
     </div>
   </section>
-  <ng-template #elseBlock>
-  Loading
-  </ng-template>
   <app-cmp-tiny-divisor></app-cmp-tiny-divisor>
-  <ng-template #elseBlock>Loading</ng-template>
+</div>
+<ng-template #elseBlock><app-cmp-loading></app-cmp-loading></ng-template>
 <app-footer></app-footer>
+<app-cmp-widget-spotify></app-cmp-widget-spotify>

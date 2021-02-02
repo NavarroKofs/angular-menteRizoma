@@ -1,6 +1,6 @@
 .card-desc{
   text-overflow: ellipsis;
-  overflow: hidden;
+  overflow: hidden; 
   font-weight: bold;
   font-family: sans-serif;
   color: white;
@@ -27,7 +27,7 @@
 }
 
 .card-img-top{
-  object-fit:fill !important;
+  object-fit: cover !important;
   background-color: rgba(0,0,0,0.6);
   filter:brightness(0.6);
   width: 18rem;
@@ -35,9 +35,16 @@
   object-fit: cover;
 }
 
-.only-show-on-hover {
-    visibility: hidden;
+.card-container {
+  width: 100%;
 }
-.card-desc:hover p.only-show-on-hover  {
-    visibility: visible;
+
+@media only screen and (max-device-width: 430px) {
+  .card-img-top{
+    width: 100% !important;
+  }
+
+  .card-desc {
+    width: 100% !important;
+  }
 }

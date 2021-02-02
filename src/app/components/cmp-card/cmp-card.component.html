@@ -1,8 +1,8 @@
-<div class="card">
+<div class="card-container">
   <figure class="figure-card-img-top">
     <img class="card-img-top" [src]="card.image" alt="Card image cap">
   </figure>
   <div class="card-body">
-    <a class="card-text" [href]="card.url">{{card.title}}</a>
+    <a class="card-text" [routerLink]="['/noticia', card.noticeId]">{{card.title}}</a>
   </div>
 </div>

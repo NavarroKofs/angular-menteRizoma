@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Routes, RouterModule, Router } from '@angular/router'
+import { Routes, RouterModule, Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-
-
+import { ClsBusquedaModelo } from "../../class/cls-busqueda-modelo";
 
 @Component({
   selector: 'app-header',
@@ -11,8 +10,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   logo: string;
+  //parametro de busqueda de la ruta /busqueda
+  busquedaQuery: string;
+  //variable para almancenar el valor del parametro query de la ruta
+  busquedaQueryGet: string;
+  //template-driven form
+  frmTemplate = new ClsBusquedaModelo('');
 
-  constructor(private route: ActivatedRoute, router: Router) { }
+  userHasToken: string = null;
+
+  constructor(private route: ActivatedRoute, private router: Router) { 
+    this.userHasToken = localStorage.getItem('userToken');
+  }
 
   isCollapse = true;
   toggleState() {
@@ -26,4 +35,13 @@ export class HeaderComponent implements OnInit {
     this.logo = "../../images/logo-mente-rizoma.png";
   }
 
+  sendTF(){
+    this.busquedaQueryGet = this.frmTemplate.query;
+    this.router.navigate(['/buscar/' + this.frmTemplate.query])
+  }
+
+  logout = () =>{
+    localStorage.setItem('userToken', "");
+    window.location.reload();
+  }
 }

@@ -27,6 +27,16 @@ import { CmpBusquedaFederadaComponent } from './components/cmp-busqueda-federada
 import { CmpLoadingComponent } from './components/cmp-loading/cmp-loading.component';
 import { SeparatorBarComponent } from './components/separator-bar/separator-bar.component';
 import { CmpSectionCardComponent } from './components/cmp-section-card/cmp-section-card.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { CmpWidgetSpotifyComponent } from './components/cmp-widget-spotify/cmp-widget-spotify.component';
+import { AccesoComponent } from './components/cmp-acceso/cmp-acceso.component';
+import { CmpRegistrarseComponent } from './components/cmp-registrarse/cmp-registrarse.component';
+import { CmpNoticeComponent } from './components/cmp-notice/cmp-notice.component';
+import { CmpComentarioComponent } from './components/cmp-comentario/cmp-comentario.component';
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { CmpFigureNotFoundComponent } from './cmp-figure-not-found/cmp-figure-not-found.component';
+import { CmpResetPasswordComponent } from "./components/cmp-reset-password/cmp-reset-password.component";
+import { CmpInsertResetCodeComponent } from './components/cmp-insert-reset-code/cmp-insert-reset-code.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +59,16 @@ import { CmpSectionCardComponent } from './components/cmp-section-card/cmp-secti
     CmpBusquedaFederadaComponent,
     CmpLoadingComponent,
     SeparatorBarComponent,
-    CmpSectionCardComponent
+    CmpSectionCardComponent,
+    NotFoundComponent,
+    CmpWidgetSpotifyComponent,
+    AccesoComponent,
+    CmpRegistrarseComponent,
+    CmpNoticeComponent,
+    CmpComentarioComponent,
+    CmpFigureNotFoundComponent,
+    CmpResetPasswordComponent,
+    CmpInsertResetCodeComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +78,8 @@ import { CmpSectionCardComponent } from './components/cmp-section-card/cmp-secti
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    EditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -35,28 +35,33 @@ header {
     object-fit: fill;
 }
 
+.nav-link {
+    cursor: pointer;
+}
+
 .nav-menu {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    align-items: center;
     list-style-type: none;
     flex-wrap: wrap;
-    padding: 0;
+    padding: 0px 5px;
+    margin: 0px;
 }
 
 .nav-menu > li > a {
     text-decoration: none;
     color: var(--black);
-    font-size: 16px;
+    font-size: 14px;
     font-weight: normal;
-    margin-left: 14px;
     text-transform: uppercase;
 }
 
 .nav-menu > li > a:hover {
     border-radius: 5px;
-    padding: 8px;
+    padding: 7px;
     color: var(--white);
     background-color: #FF5472;
 }
@@ -65,9 +70,35 @@ header {
     font-weight: bold;
 }
 
-@media only screen and (max-width: 400px) {
+.form-inline {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 1300px) {
     .nav-logo {
         width: 180px;
         height: 35px;
+    }
+
+    .navigation {
+        width: 95%;
+    }
+
+    .nav-menu > li > a {
+        font-size: 14px;
+        padding: 14px;
+    }
+
+    .inputArea {
+        font-size: 14px;
+        width: 80%;
+    }
+
+    .inputBtn {
+        font-size: 14px;
     }
 }
