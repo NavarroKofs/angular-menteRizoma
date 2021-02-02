@@ -8,9 +8,29 @@ import { IntBusqueda } from "../../interfaces/int-busqueda";
 })
 export class CmpSectionCardComponent implements OnInit {
 
-  @Input ('card') card: IntBusqueda;
+  @Input ('card') card: IntBusqueda; 
+  @Input ('i') i: number;
+
+  //isvisibleArray
+  isVisibleArray: boolean[];
+
+  constructor() {
+    this.isVisibleArray = [];
+  }
 
   ngOnInit(): void {
   }
+
+  activateHover($event){
+    this.isVisibleArray[$event.target.id] = true;
+   }
+   disableHover($event){
+    this.isVisibleArray[$event.target.id] = false;
+   }
+   disableAllHover(){
+    for (const desc in this.isVisibleArray) {
+      this.isVisibleArray[desc] = false;
+    }
+   }
 
 }
