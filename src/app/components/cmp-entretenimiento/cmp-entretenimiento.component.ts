@@ -14,9 +14,6 @@ export class EntretenimientoComponent implements OnInit {
     //parametro de busqueda de la ruta Search
     busquedaQuery: string;
 
-    //isvisibleArray
-    isVisibleArray: boolean[];
-
   constructor(private ServicioBuscarService: SrvBusquedaService, config: NgbCarouselConfig) {
     config.interval = 5000;
     config.keyboard = true;
@@ -24,8 +21,8 @@ export class EntretenimientoComponent implements OnInit {
     config.wrap = true;
     config.showNavigationIndicators = true;
   }
-    
-  ngOnInit(): void {
+
+    ngOnInit(): void {
     this.busquedaGit();
   }
 
@@ -33,7 +30,7 @@ export class EntretenimientoComponent implements OnInit {
     window.open(this.resultadoBusqueda[$event.target.id].url, "_blank","noopener noreferrer");
   }
 
-  busquedaGit = () => {
+   busquedaGit = () => {
     this.ServicioBuscarService.busquedaFederada(["kudasai", "anmo"]).then((response) => {
       this.resultadoBusqueda = response;
       for (let noticia = 5; noticia < this.resultadoBusqueda.length; noticia++) {
